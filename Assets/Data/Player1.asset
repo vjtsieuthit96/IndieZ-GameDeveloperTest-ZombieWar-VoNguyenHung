@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bd0205cf6263c14ca2bb9071c72b26c, type: 3}
+  m_Name: Player1
+  m_EditorClassIdentifier: 
+  maxHP: 100
+  maxArmor: 0
+  defaultWeapon: {fileID: 11400000, guid: 6ca05960e3187394b9f2ab323ec0be80, type: 2}
+  defaultArmor: {fileID: 11400000, guid: 007579225924a3641862139d2c3eb3cf, type: 2}

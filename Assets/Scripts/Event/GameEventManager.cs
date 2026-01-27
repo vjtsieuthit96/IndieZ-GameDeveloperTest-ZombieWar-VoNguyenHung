@@ -17,12 +17,11 @@ public class GameEventManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    // Event for joystick movement
+    // Joystick Events
+    #region Joystick 
     public event Action<Vector2>OnMoveJoystick;
     public event Action OnMoveRelease;
-
-
-    //Triger Methods
+   
     public void TriggerMove(Vector2 input)
     {
         OnMoveJoystick?.Invoke(input);
@@ -31,4 +30,21 @@ public class GameEventManager : MonoBehaviour
     {
         OnMoveRelease?.Invoke();
     }
+    #endregion
+    // Player Stats Events
+    #region
+    public event Action<float, float> OnPlayerStatsChanged; // HP, Armor
+    public event Action OnPlayerDied;
+
+    public void InvokePlayerStatsChanged(float hp, float armor)
+    {
+        OnPlayerStatsChanged?.Invoke(hp, armor);
+    }
+
+    public void InvokePlayerDied()
+    {
+        OnPlayerDied?.Invoke();
+    }
+    #endregion
+
 }
