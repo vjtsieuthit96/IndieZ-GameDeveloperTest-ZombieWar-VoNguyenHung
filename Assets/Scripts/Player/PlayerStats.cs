@@ -64,6 +64,7 @@ public class PlayerStats : MonoBehaviour
             currentHP -= amount;
         }
 
+        GameEventManager.Instance.InvokePlayerTakeDamage(amount);
         NotifyStatsChanged();
 
         if (!isDead && currentHP <= 0)

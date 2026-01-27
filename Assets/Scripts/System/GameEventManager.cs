@@ -37,6 +37,12 @@ public class GameEventManager : MonoBehaviour
     public event Action OnPlayerDied;
     public event Action OnArmorBroken;
     public event Action OnArmorEquipped;
+    public event Action<float> OnPlayerTakeDamage;
+
+    public void InvokePlayerTakeDamage(float amount)
+    {
+        OnPlayerTakeDamage?.Invoke(amount);
+    }
 
     public void InvokePlayerStatsChanged(float hp, float armor)
     {
