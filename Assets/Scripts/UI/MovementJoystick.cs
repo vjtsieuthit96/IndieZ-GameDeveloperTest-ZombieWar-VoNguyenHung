@@ -5,6 +5,7 @@ public class MovementJoystick : MonoBehaviour, IDragHandler, IPointerDownHandler
 {
     [SerializeField] private RectTransform handle;
     [SerializeField] private float radius = 100f;
+    [SerializeField] private float deadZone = 0.1f; 
 
     private Vector2 inputVector;
 
@@ -19,7 +20,11 @@ public class MovementJoystick : MonoBehaviour, IDragHandler, IPointerDownHandler
         pos = Vector2.ClampMagnitude(pos, radius);
         handle.anchoredPosition = pos;
 
-        inputVector = pos / radius;     
+        inputVector = pos / radius;
+       
+        if (inputVector.magnitude < deadZone)
+            inputVector = Vector2.zero;
+
         GameEventManager.Instance.TriggerMove(inputVector);
     }
 
