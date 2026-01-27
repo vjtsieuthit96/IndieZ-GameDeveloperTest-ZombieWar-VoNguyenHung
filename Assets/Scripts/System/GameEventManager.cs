@@ -56,7 +56,16 @@ public class GameEventManager : MonoBehaviour
     {
         OnPlayerDied?.Invoke();
     }
-
     #endregion
+    // Weapon Events
+    #region Weapon
+    public event Action<ItemDataSO> OnWeaponChanged;
+
+    public void InvokeWeaponChanged(ItemDataSO weaponData)
+    {
+        OnWeaponChanged?.Invoke(weaponData);
+    }
+    #endregion
+
 
 }

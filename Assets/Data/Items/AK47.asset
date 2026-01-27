@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf17512a724a09408fbd329d565288a, type: 3}
   m_Name: AK47
   m_EditorClassIdentifier: 
-  weaponName: AK47
+  itemType: 0
+  itemName: 
   damage: 10
   fireRate: 10
   weaponPrefab: {fileID: 2911609292039236817, guid: 4fdaca8aa8d0046448a32860b355f494, type: 3}
+  icon: {fileID: 21300000, guid: f6de0a8cfe7535a40bfb7829a00e8c22, type: 3}
+  armorValue: 0
+  healAmount: 0

@@ -39,7 +39,7 @@ public class PlayerStats : MonoBehaviour
         {
             armorBroken = true;
             GameEventManager.Instance.InvokeArmorBroken();
-        }
+        }        
     }
 
     public void TakeDamage(float amount)
