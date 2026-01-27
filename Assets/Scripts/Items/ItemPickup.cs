@@ -45,15 +45,14 @@ public class ItemPickup : MonoBehaviour
                     }
                     break;
             }
-            
-            StartCoroutine(RespawnAfterDelay(respawnDelay));
+            Invoke(nameof(Respawn), respawnDelay);
+            gameObject.SetActive(false);
+
         }
     }
-
-    private IEnumerator RespawnAfterDelay(float delay)
+    private void Respawn()
     {
-        gameObject.SetActive(false);
-        yield return new WaitForSeconds(delay);
         gameObject.SetActive(true);
     }
+
 }

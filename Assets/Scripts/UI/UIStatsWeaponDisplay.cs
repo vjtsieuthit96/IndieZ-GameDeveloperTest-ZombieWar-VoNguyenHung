@@ -3,9 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class UIStatsWeaponDisplay : MonoBehaviour
-{
-    [SerializeField] private PlayerDataSO playerData;
-   
+{    
     [Header("Weapon")]
     [SerializeField] private Image weaponIcon;
 
@@ -20,16 +18,7 @@ public class UIStatsWeaponDisplay : MonoBehaviour
     [SerializeField] private float lowHpThreshold = 30f;
 
     private Coroutine blinkCoroutine;
-
-    void Start()
-    {
-        if (hpSlider != null)
-            hpSlider.maxValue = playerData.maxHP;
-
-        if (armorSlider != null)
-            armorSlider.maxValue = playerData.maxArmor;
-    }
-
+ 
     private void OnEnable()
     {
         GameEventManager.Instance.OnWeaponChanged += UpdateWeaponUI;
@@ -66,7 +55,7 @@ public class UIStatsWeaponDisplay : MonoBehaviour
                 {
                     StopCoroutine(blinkCoroutine);
                     blinkCoroutine = null;
-                    hpFillImage.color = Color.white; 
+                    hpFillImage.color = Color.red; 
                 }
             }
         }

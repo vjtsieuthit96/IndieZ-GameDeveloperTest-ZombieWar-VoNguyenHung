@@ -14,6 +14,7 @@ public class BloodEffect : MonoBehaviour
     private void Start()
     {
         bloodImage.enabled = false;
+        bloodImage.raycastTarget = false;
     }
 
     private void OnEnable()

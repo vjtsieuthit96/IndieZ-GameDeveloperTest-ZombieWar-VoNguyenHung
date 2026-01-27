@@ -1,12 +1,9 @@
 ﻿using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class FixedJoystick : Joystick
-{   
-    public override void OnDrag(PointerEventData eventData)
+{
+    private void Update()
     {
-        base.OnDrag(eventData);
-
         Vector2 input = new Vector2(Horizontal, Vertical);
 
         if (input.sqrMagnitude > 0.01f)
@@ -16,13 +13,12 @@ public class FixedJoystick : Joystick
         else
         {
             GameEventManager.Instance.TriggerMoveRelease();
-        }        
+        }
     }
 
-    public override void OnPointerUp(PointerEventData eventData)
+    public override void OnPointerUp(UnityEngine.EventSystems.PointerEventData eventData)
     {
         base.OnPointerUp(eventData);
-        
         GameEventManager.Instance.TriggerMoveRelease();
     }
 }

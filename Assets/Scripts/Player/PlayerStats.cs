@@ -81,9 +81,10 @@ public class PlayerStats : MonoBehaviour
 
     public void AddArmor(ItemDataSO armor)
     {
-        if (armor.itemType != ItemType.Armor) return;
-
+        if (armor.itemType != ItemType.Armor) return;        
         currentArmor += armor.armorValue;
+        if (currentArmor >= 50)
+            currentArmor = 50;
         armorBroken = false;
 
         GameEventManager.Instance.InvokeArmorEquipped();
