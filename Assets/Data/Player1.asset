@@ -15,4 +15,4 @@ MonoBehaviour:
   maxHP: 100
   maxArmor: 0
   defaultWeapon: {fileID: 11400000, guid: b813b4411c47dc34da1c9df16ac93f8b, type: 2}
-  defaultArmor: {fileID: 11400000, guid: 007579225924a3641862139d2c3eb3cf, type: 2}
+  defaultArmor: {fileID: 11400000, guid: 5269d66820af7844f8337e15aa3c122a, type: 2}

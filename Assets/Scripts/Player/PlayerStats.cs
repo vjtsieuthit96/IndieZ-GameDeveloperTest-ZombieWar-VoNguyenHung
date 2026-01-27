@@ -72,9 +72,9 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    public void Heal(float amount)
+    public void Heal(ItemDataSO healitem)
     {
-        currentHP = Mathf.Min(currentHP + amount, playerData.maxHP);
+        currentHP = Mathf.Min(currentHP + healitem.healAmount, playerData.maxHP);
         NotifyStatsChanged();
     }
 
