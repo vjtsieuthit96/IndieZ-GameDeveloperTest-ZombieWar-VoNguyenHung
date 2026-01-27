@@ -33,18 +33,30 @@ public class GameEventManager : MonoBehaviour
     #endregion
     // Player Stats Events
     #region
-    public event Action<float, float> OnPlayerStatsChanged; // HP, Armor
+    public event Action<float, float> OnPlayerStatsChanged; 
     public event Action OnPlayerDied;
+    public event Action OnArmorBroken;
+    public event Action OnArmorEquipped;
 
     public void InvokePlayerStatsChanged(float hp, float armor)
     {
         OnPlayerStatsChanged?.Invoke(hp, armor);
+    }
+    public void InvokeArmorBroken()
+    {
+        OnArmorBroken?.Invoke();
+    }
+
+    public void InvokeArmorEquipped()
+    {
+        OnArmorEquipped?.Invoke();
     }
 
     public void InvokePlayerDied()
     {
         OnPlayerDied?.Invoke();
     }
+
     #endregion
 
 }

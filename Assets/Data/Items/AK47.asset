@@ -15,3 +15,4 @@ MonoBehaviour:
   weaponName: AK47
   damage: 10
   fireRate: 10
+  weaponPrefab: {fileID: 2911609292039236817, guid: 4fdaca8aa8d0046448a32860b355f494, type: 3}

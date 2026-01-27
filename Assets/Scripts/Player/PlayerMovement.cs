@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         controller.enabled = true;
         isDead = false;
-        rig.enabled = true;
+        //rig.enabled = true;
         if (GameEventManager.Instance != null)
         {
             GameEventManager.Instance.OnMoveJoystick += OnMove;

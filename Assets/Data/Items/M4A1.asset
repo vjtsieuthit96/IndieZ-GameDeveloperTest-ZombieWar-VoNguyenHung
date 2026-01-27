@@ -15,3 +15,4 @@ MonoBehaviour:
   weaponName: M4A1
   damage: 10
   fireRate: 15
+  weaponPrefab: {fileID: 3333320974960736836, guid: 17e18953a6b1a3e4bb9709c1e5be0e1e, type: 3}

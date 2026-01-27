@@ -8,6 +8,6 @@ public class PlayerDataSO : ScriptableObject
     public float maxArmor = 0f;
 
     [Header("Default Equipment")]
-    public WeaponDataSO defaultWeapon;
-    public ArmorDataSO defaultArmor;
+    public ItemDataSO defaultWeapon;
+    public ItemDataSO defaultArmor;
 }

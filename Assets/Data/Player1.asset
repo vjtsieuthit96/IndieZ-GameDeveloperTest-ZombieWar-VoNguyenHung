@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   maxArmor: 0
-  defaultWeapon: {fileID: 11400000, guid: 6ca05960e3187394b9f2ab323ec0be80, type: 2}
+  defaultWeapon: {fileID: 11400000, guid: b813b4411c47dc34da1c9df16ac93f8b, type: 2}
   defaultArmor: {fileID: 11400000, guid: 007579225924a3641862139d2c3eb3cf, type: 2}
