@@ -41,7 +41,7 @@ public class ItemPickup : MonoBehaviour
                     if (playerStats != null)
                     {
                         Debug.Log($"Player healed: +{itemData.healAmount}");
-                        playerStats.Heal(itemData.healAmount);
+                        playerStats.Heal(itemData);
                     }
                     break;
             }
