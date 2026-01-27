@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
         if (defaultWeapon != null && currentWeapon == null)
         {
             currentWeapon = ObjectPoolManager.SpawnObject(defaultWeapon.weaponPrefab, weaponSocket, Quaternion.identity);
+            GameEventManager.Instance.InvokeWeaponChanged(defaultWeapon);
         }
     }
     void OnDisable()
@@ -50,5 +51,6 @@ public class PlayerController : MonoBehaviour
         {
             currentWeapon = ObjectPoolManager.SpawnObject(weaponData.weaponPrefab, weaponSocket, Quaternion.identity);
         }
+        GameEventManager.Instance.InvokeWeaponChanged(weaponData);
     }
 }

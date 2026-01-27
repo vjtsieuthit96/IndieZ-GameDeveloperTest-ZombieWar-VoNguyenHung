@@ -37,6 +37,12 @@ public class GameEventManager : MonoBehaviour
     public event Action OnPlayerDied;
     public event Action OnArmorBroken;
     public event Action OnArmorEquipped;
+    public event Action<float> OnPlayerTakeDamage;
+
+    public void InvokePlayerTakeDamage(float amount)
+    {
+        OnPlayerTakeDamage?.Invoke(amount);
+    }
 
     public void InvokePlayerStatsChanged(float hp, float armor)
     {
@@ -56,7 +62,16 @@ public class GameEventManager : MonoBehaviour
     {
         OnPlayerDied?.Invoke();
     }
-
     #endregion
+    // Weapon Events
+    #region Weapon
+    public event Action<ItemDataSO> OnWeaponChanged;
+
+    public void InvokeWeaponChanged(ItemDataSO weaponData)
+    {
+        OnWeaponChanged?.Invoke(weaponData);
+    }
+    #endregion
+
 
 }

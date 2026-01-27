@@ -39,7 +39,7 @@ public class PlayerStats : MonoBehaviour
         {
             armorBroken = true;
             GameEventManager.Instance.InvokeArmorBroken();
-        }
+        }        
     }
 
     public void TakeDamage(float amount)
@@ -64,6 +64,7 @@ public class PlayerStats : MonoBehaviour
             currentHP -= amount;
         }
 
+        GameEventManager.Instance.InvokePlayerTakeDamage(amount);
         NotifyStatsChanged();
 
         if (!isDead && currentHP <= 0)
@@ -80,9 +81,10 @@ public class PlayerStats : MonoBehaviour
 
     public void AddArmor(ItemDataSO armor)
     {
-        if (armor.itemType != ItemType.Armor) return;
-
+        if (armor.itemType != ItemType.Armor) return;        
         currentArmor += armor.armorValue;
+        if (currentArmor >= 50)
+            currentArmor = 50;
         armorBroken = false;
 
         GameEventManager.Instance.InvokeArmorEquipped();
