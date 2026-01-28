@@ -1021,6 +1021,7 @@ GameObject:
   - component: {fileID: 3182261236937898623}
   - component: {fileID: 7301501078680491728}
   - component: {fileID: 2946728656822946616}
+  - component: {fileID: 7968999483387955482}
   m_Layer: 0
   m_Name: nZombie_TypeStand
   m_TagString: Enemy
@@ -1111,6 +1112,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &7968999483387955482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3558820789037399146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a13cee6926fa4a34c9c37efb23bc8549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: fe04dbe0bbb650643b40bb677f0f32d1, type: 2}
+  currentHP: 0
+  skinnedMeshes:
+  - {fileID: 4601217608504789259}
 --- !u!1 &3780100458451256615
 GameObject:
   m_ObjectHideFlags: 0

@@ -216,7 +216,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cde7794b72ba29b4fbab0dc5d3c3faf0, type: 2}
+  - {fileID: 2100000, guid: e69a96924b85f854caca26ed9cd1519a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1914,6 +1914,7 @@ GameObject:
   - component: {fileID: 7066076444508556522}
   - component: {fileID: 2833739247817601384}
   - component: {fileID: 1957036112426914090}
+  - component: {fileID: 3538535362878249218}
   m_Layer: 0
   m_Name: ShirtlessZombie_TypeStand
   m_TagString: Enemy
@@ -2034,6 +2035,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3538535362878249218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5354992946826128773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a13cee6926fa4a34c9c37efb23bc8549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 8b2e87dc82f9c914d9d9ed1c3286e7aa, type: 2}
+  currentHP: 0
+  skinnedMeshes:
+  - {fileID: 329174365334058852}
+  - {fileID: 3291420133176143232}
+  - {fileID: 5731082587797554803}
+  - {fileID: 8190158181645255752}
+  - {fileID: 6416373518203330147}
+  - {fileID: 7433966950087237051}
 --- !u!1 &5379291923765502025
 GameObject:
   m_ObjectHideFlags: 0

@@ -522,7 +522,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ae42370e12965084a922b0d579f62112, type: 2}
+  - {fileID: 2100000, guid: d71dddaf4302c4745896efa7226c261d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -706,7 +706,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cde7794b72ba29b4fbab0dc5d3c3faf0, type: 2}
+  - {fileID: 2100000, guid: e69a96924b85f854caca26ed9cd1519a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1996,6 +1996,7 @@ GameObject:
   - component: {fileID: 7994212613061898788}
   - component: {fileID: 982546394837329325}
   - component: {fileID: 6933417369408515373}
+  - component: {fileID: 1621917898835292431}
   m_Layer: 0
   m_Name: ShirtlessZombie_TypeCrawl
   m_TagString: Enemy
@@ -2116,6 +2117,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1621917898835292431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5350274295646539816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a13cee6926fa4a34c9c37efb23bc8549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 8b2e87dc82f9c914d9d9ed1c3286e7aa, type: 2}
+  currentHP: 0
+  skinnedMeshes:
+  - {fileID: 868230688853280082}
+  - {fileID: 6913043990772415874}
+  - {fileID: 8703772072559921717}
+  - {fileID: 8100978400007269373}
+  - {fileID: 2545698320705628895}
+  - {fileID: 9067331421388577948}
 --- !u!1 &5409487333700588853
 GameObject:
   m_ObjectHideFlags: 0
