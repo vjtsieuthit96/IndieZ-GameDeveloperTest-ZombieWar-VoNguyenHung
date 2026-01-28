@@ -2,23 +2,24 @@
 
 public class FixedJoystick : Joystick
 {
+    private bool isMoving;
     private void Update()
     {
         Vector2 input = new Vector2(Horizontal, Vertical);
 
-        if (input.sqrMagnitude > 0.01f)
+        if (input.sqrMagnitude > 0.001f)
         {
             GameEventManager.Instance.TriggerMove(input);
+
+            if (!isMoving)
+            {
+                isMoving = true;
+            }
         }
-        else
+        else if (isMoving)
         {
             GameEventManager.Instance.TriggerMoveRelease();
+            isMoving = false;
         }
-    }
-
-    public override void OnPointerUp(UnityEngine.EventSystems.PointerEventData eventData)
-    {
-        base.OnPointerUp(eventData);
-        GameEventManager.Instance.TriggerMoveRelease();
     }
 }

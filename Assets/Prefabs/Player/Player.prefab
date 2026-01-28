@@ -1807,7 +1807,7 @@ Transform:
   m_GameObject: {fileID: 3886637623943858288}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.154, y: 1.2960002, z: 0.5059999}
+  m_LocalPosition: {x: -0.103, y: 1.3, z: 0.495}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2153,7 +2153,7 @@ MonoBehaviour:
     FieldOfView: 60.000004
     OrthographicSize: 5
     NearClipPlane: 0.3
-    FarClipPlane: 1000
+    FarClipPlane: 25
     Dutch: 0
     ModeOverride: 0
     PhysicalProperties:
@@ -3068,6 +3068,7 @@ MonoBehaviour:
   weaponSocket: {fileID: 4341738492876060678}
   armor: {fileID: 1409591593969377600}
   defaultWeapon: {fileID: 11400000, guid: b813b4411c47dc34da1c9df16ac93f8b, type: 2}
+  animator: {fileID: 3445559981746198809}
 --- !u!1 &6003328835965952105
 GameObject:
   m_ObjectHideFlags: 0
@@ -3910,7 +3911,7 @@ Transform:
   m_GameObject: {fileID: 8122284910505480183}
   serializedVersion: 2
   m_LocalRotation: {x: -0.43836987, y: -0.6773668, z: -0.32567158, w: 0.49289358}
-  m_LocalPosition: {x: 0.21720934, y: 1.2910984, z: 0.23212433}
+  m_LocalPosition: {x: -0.03979063, y: 1.2950981, z: 0.22112274}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.10000002}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4031,12 +4032,12 @@ Transform:
   m_GameObject: {fileID: 8794684946274430330}
   serializedVersion: 2
   m_LocalRotation: {x: -0.15113518, y: 0.8870859, z: 0.058355995, w: 0.43223998}
-  m_LocalPosition: {x: 0.1203475, y: 1.3597655, z: 0.5183487}
+  m_LocalPosition: {x: -0.13665247, y: 1.3637652, z: 0.5073471}
   m_LocalScale: {x: 0.099999964, y: 0.099999994, z: 0.09999999}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7084083225017502771}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -13.929, y: 129.8, z: -12.469}
 --- !u!1773428102 &8451013394989296882
 ParentConstraint:
   m_ObjectHideFlags: 0
@@ -4077,6 +4078,7 @@ GameObject:
   - component: {fileID: 1346933903494611683}
   - component: {fileID: 2911681238009565484}
   - component: {fileID: 5609824941312017413}
+  - component: {fileID: 3478774764845595294}
   m_Layer: 0
   m_Name: SK_Military_Survivalist_Player
   m_TagString: Player
@@ -4257,6 +4259,18 @@ MonoBehaviour:
   - m_Rig: {fileID: 8053835919453396321}
     m_Active: 1
   m_Effectors: []
+--- !u!114 &3478774764845595294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9051303273574602895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa1bfc8128aac641af18d765c14944d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9142627234804097134
 GameObject:
   m_ObjectHideFlags: 0

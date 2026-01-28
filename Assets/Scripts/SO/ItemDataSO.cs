@@ -14,6 +14,7 @@ public class ItemDataSO : ScriptableObject
     [Header("Weapon Stats")]
     public float damage;
     public float fireRate;
+    public int magazineSize;   
     public GameObject weaponPrefab;
     public Sprite icon;
 
