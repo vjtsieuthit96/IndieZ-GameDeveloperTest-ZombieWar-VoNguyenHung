@@ -2,25 +2,24 @@
 
 public class FixedJoystick : Joystick
 {
-    private Vector2 lastInput;
-
+    private bool isMoving;
     private void Update()
     {
         Vector2 input = new Vector2(Horizontal, Vertical);
 
-        // Chỉ gửi event khi input thay đổi
-        if (input.sqrMagnitude > 0.01f)
+        if (input.sqrMagnitude > 0.001f)
         {
-            if (input != lastInput)
+            GameEventManager.Instance.TriggerMove(input);
+
+            if (!isMoving)
             {
-                GameEventManager.Instance.TriggerMove(input);
-                lastInput = input;
+                isMoving = true;
             }
         }
-        else if (lastInput != Vector2.zero)
+        else if (isMoving)
         {
             GameEventManager.Instance.TriggerMoveRelease();
-            lastInput = Vector2.zero;
+            isMoving = false;
         }
     }
 }

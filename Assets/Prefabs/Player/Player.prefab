@@ -2153,7 +2153,7 @@ MonoBehaviour:
     FieldOfView: 60.000004
     OrthographicSize: 5
     NearClipPlane: 0.3
-    FarClipPlane: 1000
+    FarClipPlane: 25
     Dutch: 0
     ModeOverride: 0
     PhysicalProperties:
@@ -4037,7 +4037,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7084083225017502771}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -13.929, y: 129.8, z: -12.469}
 --- !u!1773428102 &8451013394989296882
 ParentConstraint:
   m_ObjectHideFlags: 0
@@ -4271,7 +4271,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa1bfc8128aac641af18d765c14944d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rig: {fileID: 5609824941312017413}
 --- !u!1 &9142627234804097134
 GameObject:
   m_ObjectHideFlags: 0

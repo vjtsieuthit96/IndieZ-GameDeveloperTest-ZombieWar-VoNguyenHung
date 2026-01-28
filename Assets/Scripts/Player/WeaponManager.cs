@@ -61,7 +61,7 @@ public class WeaponManager : MonoBehaviour
     }
     private void HandleReloadClicked()
     {
-        if (!isReloading) StartReload();
+        if (!isReloading && currentAmmoInMag <30) StartReload();
     }
 
     void Update()

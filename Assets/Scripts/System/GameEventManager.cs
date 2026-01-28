@@ -34,6 +34,7 @@ public class GameEventManager : MonoBehaviour
     // Button Events
     public event Action OnShootHold;
     public event Action OnShootRelease;
+    public event Action OnReloadClicked;
 
     public void TriggerShootHold()
     {
@@ -44,6 +45,12 @@ public class GameEventManager : MonoBehaviour
     {
         OnShootRelease?.Invoke();
     }
+
+    public void TriggerReloadClicked()
+    {
+        OnReloadClicked?.Invoke();
+    }
+    
     #endregion
     // Player Stats Events
     #region
@@ -82,8 +89,7 @@ public class GameEventManager : MonoBehaviour
     public event Action<ItemDataSO> OnWeaponChanged;
     public event Action<int, int> OnAmmoChanged;
     public event Action OnReloadStarted;
-    public event Action OnReloadFinished;
-    public event Action OnReloadClicked;
+    public event Action OnReloadFinished;    
 
     public void InvokeAmmoChanged(int current, int reserve)
     {
@@ -96,11 +102,7 @@ public class GameEventManager : MonoBehaviour
     public void InvokeReloadFinished()
     {
         OnReloadFinished?.Invoke();
-    }
-    public void InvokeReloadClicked()
-    {
-        OnReloadClicked?.Invoke();
-    }
+    }   
     public void InvokeWeaponChanged(ItemDataSO weaponData)
     {
         OnWeaponChanged?.Invoke(weaponData);
