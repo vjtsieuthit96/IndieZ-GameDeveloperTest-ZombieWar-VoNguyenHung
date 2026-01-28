@@ -17,8 +17,9 @@ public class GameEventManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    // UI Events
+    #region UI 
     // Joystick Events
-    #region Joystick 
     public event Action<Vector2>OnMoveJoystick;
     public event Action OnMoveRelease;
    
@@ -29,6 +30,19 @@ public class GameEventManager : MonoBehaviour
     public void TriggerMoveRelease()
     {
         OnMoveRelease?.Invoke();
+    }
+    // Button Events
+    public event Action OnShootHold;
+    public event Action OnShootRelease;
+
+    public void TriggerShootHold()
+    {
+        OnShootHold?.Invoke();
+    }
+
+    public void TriggerShootRelease()
+    {
+        OnShootRelease?.Invoke();
     }
     #endregion
     // Player Stats Events
@@ -66,7 +80,27 @@ public class GameEventManager : MonoBehaviour
     // Weapon Events
     #region Weapon
     public event Action<ItemDataSO> OnWeaponChanged;
+    public event Action<int, int> OnAmmoChanged;
+    public event Action OnReloadStarted;
+    public event Action OnReloadFinished;
+    public event Action OnReloadClicked;
 
+    public void InvokeAmmoChanged(int current, int reserve)
+    {
+        OnAmmoChanged?.Invoke(current, reserve);
+    }
+    public void InvokeReloadStarted() 
+    {
+        OnReloadStarted?.Invoke(); 
+    }
+    public void InvokeReloadFinished()
+    {
+        OnReloadFinished?.Invoke();
+    }
+    public void InvokeReloadClicked()
+    {
+        OnReloadClicked?.Invoke();
+    }
     public void InvokeWeaponChanged(ItemDataSO weaponData)
     {
         OnWeaponChanged?.Invoke(weaponData);

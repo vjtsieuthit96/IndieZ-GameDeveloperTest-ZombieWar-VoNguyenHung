@@ -15,7 +15,8 @@ MonoBehaviour:
   itemType: 0
   itemName: 
   damage: 10
-  fireRate: 15
+  fireRate: 0.3
+  magazineSize: 30
   weaponPrefab: {fileID: 3333320974960736836, guid: 17e18953a6b1a3e4bb9709c1e5be0e1e, type: 3}
   icon: {fileID: 21300000, guid: be0ff90e8befd7845b3e52e656a58251, type: 3}
   armorValue: 0
