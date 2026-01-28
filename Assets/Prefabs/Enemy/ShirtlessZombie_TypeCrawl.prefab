@@ -1994,9 +1994,9 @@ GameObject:
   - component: {fileID: 1787148360201470492}
   - component: {fileID: 4017715896159217298}
   - component: {fileID: 7994212613061898788}
-  - component: {fileID: 982546394837329325}
   - component: {fileID: 6933417369408515373}
   - component: {fileID: 1621917898835292431}
+  - component: {fileID: 8303039759606350885}
   m_Layer: 0
   m_Name: ShirtlessZombie_TypeCrawl
   m_TagString: Enemy
@@ -2073,28 +2073,6 @@ LODGroup:
     - renderer: {fileID: 9067331421388577948}
     - renderer: {fileID: 8703772072559921717}
   m_Enabled: 1
---- !u!64 &982546394837329325
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5350274295646539816}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!195 &6933417369408515373
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2138,6 +2116,29 @@ MonoBehaviour:
   - {fileID: 8100978400007269373}
   - {fileID: 2545698320705628895}
   - {fileID: 9067331421388577948}
+--- !u!136 &8303039759606350885
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5350274295646539816}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.35
+  m_Height: 1.9
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!1 &5409487333700588853
 GameObject:
   m_ObjectHideFlags: 0
