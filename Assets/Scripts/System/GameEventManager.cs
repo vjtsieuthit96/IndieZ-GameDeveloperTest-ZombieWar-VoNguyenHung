@@ -126,4 +126,13 @@ public class GameEventManager : MonoBehaviour
 
     #endregion
 
+    #region EnemyEvents
+    //Enemy Events
+    public event Action<GameObject> OnEnemyDie;
+    public void InvokeEnemyDie(GameObject enemy)
+    {
+        OnEnemyDie?.Invoke(enemy);
+    }
+    #endregion
+
 }

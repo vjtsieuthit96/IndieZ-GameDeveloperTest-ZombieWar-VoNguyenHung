@@ -93,6 +93,11 @@ public class WeaponManager : MonoBehaviour
 
             if (hit.collider.CompareTag("Enemy"))
             {
+                ZombieStats enemyStats = hit.collider.GetComponent<ZombieStats>();
+                if (enemyStats != null)
+                {
+                    enemyStats.TakeDamage(damage);
+                }
                 ObjectPoolManager.SpawnObject(impactEnemy, hit.point, Quaternion.LookRotation(hit.normal));
                 ObjectPoolManager.SpawnObject(bulletHoleEnemy, hit.point, Quaternion.LookRotation(hit.normal));
             }
