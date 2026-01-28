@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 public class UIStatsWeaponDisplay : MonoBehaviour
 {    
     [Header("Weapon")]
     [SerializeField] private Image weaponIcon;
+    [SerializeField] private TMP_Text ammoText;
 
     [Header("Stats")]
     [SerializeField] private Slider hpSlider;
@@ -23,12 +25,15 @@ public class UIStatsWeaponDisplay : MonoBehaviour
     {
         GameEventManager.Instance.OnWeaponChanged += UpdateWeaponUI;
         GameEventManager.Instance.OnPlayerStatsChanged += UpdateStatsUI;
+        GameEventManager.Instance.OnAmmoChanged += UpdateAmmoUI;       
+
     }
 
     private void OnDisable()
     {
         GameEventManager.Instance.OnWeaponChanged -= UpdateWeaponUI;
         GameEventManager.Instance.OnPlayerStatsChanged -= UpdateStatsUI;
+        GameEventManager.Instance.OnAmmoChanged -= UpdateAmmoUI;
     }
     
     private void UpdateWeaponUI(ItemDataSO weaponData)
@@ -38,6 +43,14 @@ public class UIStatsWeaponDisplay : MonoBehaviour
             weaponIcon.sprite = weaponData.icon;
         }
     }
+    private void UpdateAmmoUI(int current, int reserve)
+    {
+        if (ammoText != null)
+        {
+            ammoText.text = $"{current} / {reserve}";
+        }
+    }
+
     private void UpdateStatsUI(float hp, float armor)
     {
         if (hpSlider != null)

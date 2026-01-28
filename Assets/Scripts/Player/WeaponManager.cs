@@ -30,8 +30,7 @@ public class WeaponManager : MonoBehaviour
         magazineSize = weaponData.magazineSize;      
         currentAmmoInMag = magazineSize;        
         reserveAmmo = Mathf.Max(0, maxAmmo - magazineSize);
-        GameEventManager.Instance.InvokeAmmoChanged(currentAmmoInMag, reserveAmmo);
-        Debug.Log($"Init weapon: Mag = {currentAmmoInMag}, Reserve = {reserveAmmo}");
+        GameEventManager.Instance.InvokeAmmoChanged(currentAmmoInMag, reserveAmmo);       
     }
     void OnEnable()
     {
@@ -103,8 +102,7 @@ public class WeaponManager : MonoBehaviour
                 ObjectPoolManager.SpawnObject(bulletHoleDefault, hit.point, Quaternion.LookRotation(hit.normal));
             }
 
-            currentAmmoInMag--;            
-            Debug.Log($"[Shoot] Ammo in mag: {currentAmmoInMag} / Reserve: {reserveAmmo}");
+            currentAmmoInMag--;           
             GameEventManager.Instance.InvokeAmmoChanged(currentAmmoInMag, reserveAmmo);
         }
     }
@@ -127,6 +125,5 @@ public class WeaponManager : MonoBehaviour
         isReloading = false;
 
         GameEventManager.Instance.InvokeAmmoChanged(currentAmmoInMag, reserveAmmo);
-        Debug.Log($"Reloaded. Ammo in mag: {currentAmmoInMag} / Reserve: {reserveAmmo}");
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 169287942445887819}
   - component: {fileID: 5748967709799266751}
   - component: {fileID: 9125730684532984067}
-  - component: {fileID: 1963905130454083801}
+  - component: {fileID: 6640620371437247467}
   m_Layer: 0
   m_Name: '[Impact] SoftBody'
   m_TagString: Untagged
@@ -4744,7 +4744,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &1963905130454083801
+--- !u!114 &6640620371437247467
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4753,10 +4753,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5427926128662192595}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fd2e8874f60266498a388d7229a1bac, type: 3}
+  m_Script: {fileID: 11500000, guid: 81e0f5166e63c6d4484f5613dbeaf55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnlyDeactivate: 0
 --- !u!1 &5721454947707717768
 GameObject:
   m_ObjectHideFlags: 0

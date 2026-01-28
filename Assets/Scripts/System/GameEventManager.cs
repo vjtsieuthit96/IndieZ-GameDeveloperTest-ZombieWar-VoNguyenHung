@@ -109,5 +109,21 @@ public class GameEventManager : MonoBehaviour
     }
     #endregion
 
+    #region GAMEPLAY
+    // Survival Timer Events
+    public event Action<float> OnSurvivalTimeChanged;
+    public event Action<float> OnSurvivalMilestone;
+
+    public void InvokeSurvivalTimeChanged(float time)
+    {
+        OnSurvivalTimeChanged?.Invoke(time);
+    }
+
+    public void InvokeSurvivalMilestone(float milestone)
+    {
+        OnSurvivalMilestone?.Invoke(milestone);
+    }
+
+    #endregion
 
 }

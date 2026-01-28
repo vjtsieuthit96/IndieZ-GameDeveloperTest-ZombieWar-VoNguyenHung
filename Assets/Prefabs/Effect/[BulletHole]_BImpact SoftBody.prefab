@@ -4716,6 +4716,7 @@ GameObject:
   - component: {fileID: 7434233956392678947}
   - component: {fileID: 5009385110023134852}
   - component: {fileID: 4628932118527126710}
+  - component: {fileID: -1806507427921692215}
   m_Layer: 0
   m_Name: '[BulletHole]_BImpact SoftBody'
   m_TagString: Untagged
@@ -9448,6 +9449,18 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-1806507427921692215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8048257710344919960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81e0f5166e63c6d4484f5613dbeaf55e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8366318212616333679
 GameObject:
   m_ObjectHideFlags: 0
