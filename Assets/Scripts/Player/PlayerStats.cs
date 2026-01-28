@@ -2,7 +2,7 @@
 
 public class PlayerStats : MonoBehaviour
 {
-    public PlayerDataSO playerData;
+    [SerializeField] PlayerDataSO playerData;
 
     [SerializeField] private float currentHP;
     [SerializeField] private float currentArmor;
