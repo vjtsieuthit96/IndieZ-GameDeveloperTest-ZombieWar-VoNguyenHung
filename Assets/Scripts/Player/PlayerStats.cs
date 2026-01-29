@@ -2,30 +2,47 @@
 
 public class PlayerStats : MonoBehaviour
 {
-    [SerializeField] PlayerDataSO playerData;
+    [SerializeField] private PlayerDataSO playerData;
 
     [SerializeField] private float currentHP;
     [SerializeField] private float currentArmor;
+    public float CurrentHP => currentHP;
+    public float CurrentArmor => currentArmor;
+    private bool restoredFromSave = false;
+
+    public void SetStats(float hp, float armor)
+    {
+        currentHP = hp;
+        currentArmor = armor;
+        restoredFromSave = true;        
+        if (currentArmor <= 0)
+            GameEventManager.Instance.InvokeArmorBroken();
+        else
+            GameEventManager.Instance.InvokeArmorEquipped();
+
+        NotifyStatsChanged();
+
+    }
 
     private bool isDead = false;
     private bool armorBroken = false;
 
     private void Start()
     {
-        currentHP = playerData.maxHP;
-        currentArmor = playerData.maxArmor;
-
-        if (playerData.defaultArmor != null && playerData.defaultArmor.itemType == ItemType.Armor)
+        if (!restoredFromSave)
         {
-            currentArmor = playerData.defaultArmor.armorValue;
-            armorBroken = currentArmor <= 0;
-            if (!armorBroken)
+            currentHP = playerData.maxHP;
+            currentArmor = playerData.maxArmor;
+
+            if (playerData.defaultArmor != null && playerData.defaultArmor.itemType == ItemType.Armor)
             {
-                GameEventManager.Instance.InvokeArmorEquipped();
+                currentArmor = playerData.defaultArmor.armorValue;
+                if (currentArmor > 0)
+                    GameEventManager.Instance.InvokeArmorEquipped();
             }
+            NotifyStatsChanged();
         }
 
-        NotifyStatsChanged();
     }
 
     private void Update()

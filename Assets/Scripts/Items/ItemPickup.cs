@@ -18,32 +18,36 @@ public class ItemPickup : MonoBehaviour
         {
             PlayerController playerController = other.GetComponentInParent<PlayerController>();
             PlayerStats playerStats = other.GetComponentInParent<PlayerStats>();
+            Inventory playerInventory = other.GetComponentInParent<Inventory>();
 
             switch (itemData.itemType)
             {
                 case ItemType.Weapon:
                     if (playerController != null)
-                    {
-                        Debug.Log("Player picked up weapon: " + itemData.itemName);
+                    {                        
                         playerController.EquipWeapon(itemData);
                     }
                     break;
 
                 case ItemType.Armor:
                     if (playerStats != null)
-                    {
-                        Debug.Log("Player picked up armor: " + itemData.itemName);
+                    {                        
                         playerStats.AddArmor(itemData); 
                     }
                     break;
 
                 case ItemType.Heal:
                     if (playerStats != null)
-                    {
-                        Debug.Log($"Player healed: +{itemData.healAmount}");
+                    {                        
                         playerStats.Heal(itemData);
                     }
                     break;
+
+                case ItemType.Ammo:
+                    if (playerInventory != null)
+                        playerInventory.AddAmmo(itemData.amountAmmo);
+                    break;
+
             }
             Invoke(nameof(Respawn), respawnDelay);
             gameObject.SetActive(false);

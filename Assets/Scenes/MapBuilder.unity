@@ -7364,7 +7364,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3448361634989688710, guid: 0730970dff7724d43939e2d8b6f978fe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -118.14737
+      value: -272.7
       objectReference: {fileID: 0}
     - target: {fileID: 3448361634989688710, guid: 0730970dff7724d43939e2d8b6f978fe, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7372,7 +7372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3448361634989688710, guid: 0730970dff7724d43939e2d8b6f978fe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.39158738
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3448361634989688710, guid: 0730970dff7724d43939e2d8b6f978fe, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7406,15 +7406,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: nZombie_TypeStand
       objectReference: {fileID: 0}
-    - target: {fileID: 4601217608504789259, guid: 0730970dff7724d43939e2d8b6f978fe, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+    - target: {fileID: 5083655004489176787, guid: 0730970dff7724d43939e2d8b6f978fe, type: 3}
+      propertyPath: agent
       value: 
-      objectReference: {fileID: 2100000, guid: e08a2aa9bdb44f04299a6e58059893c5, type: 2}
+      objectReference: {fileID: 715815401}
+    - target: {fileID: 5083655004489176787, guid: 0730970dff7724d43939e2d8b6f978fe, type: 3}
+      propertyPath: zombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: fe04dbe0bbb650643b40bb677f0f32d1, type: 2}
+    - target: {fileID: 5083655004489176787, guid: 0730970dff7724d43939e2d8b6f978fe, type: 3}
+      propertyPath: playerTarget
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301501078680491728, guid: 0730970dff7724d43939e2d8b6f978fe, type: 3}
+      propertyPath: m_Acceleration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301501078680491728, guid: 0730970dff7724d43939e2d8b6f978fe, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0730970dff7724d43939e2d8b6f978fe, type: 3}
+--- !u!195 &715815401 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 7301501078680491728, guid: 0730970dff7724d43939e2d8b6f978fe, type: 3}
+  m_PrefabInstance: {fileID: 715815400}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &715815403 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7968999483387955482, guid: 0730970dff7724d43939e2d8b6f978fe, type: 3}
@@ -9199,6 +9220,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: a7bbdd126814c76429662524a1ce521d, type: 3}
       propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64695072232130292, guid: a7bbdd126814c76429662524a1ce521d, type: 3}
+      propertyPath: m_Convex
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: nZombiie
   m_EditorClassIdentifier: 
   maxHP: 20
-  damage: 20
-  moveSpeed: 3
+  damage: 1.5
+  moveSpeed: 1.5
+  playerDetectRange: 5
+  attackRange: 0.75

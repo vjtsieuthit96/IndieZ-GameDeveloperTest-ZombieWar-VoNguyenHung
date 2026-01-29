@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: ShirtlessZom
   m_EditorClassIdentifier: 
   maxHP: 30
-  damage: 10
-  moveSpeed: 5
+  damage: 1
+  moveSpeed: 2
+  playerDetectRange: 5
+  attackRange: 0.75

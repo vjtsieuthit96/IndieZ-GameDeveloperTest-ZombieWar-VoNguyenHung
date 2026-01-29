@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3023805456326817406}
   - component: {fileID: 2671653498890273708}
   - component: {fileID: 6348512830429553459}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4878,7 +4878,7 @@ GameObject:
   - component: {fileID: 689808432884061447}
   - component: {fileID: 907283876215085793}
   - component: {fileID: 8987783678677291167}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9745,7 +9745,7 @@ GameObject:
   - component: {fileID: 6691667393989617500}
   - component: {fileID: 6891520540260448247}
   - component: {fileID: 1460726109994693947}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14612,7 +14612,7 @@ GameObject:
   - component: {fileID: 7782126746190973919}
   - component: {fileID: 2910944362082160742}
   - component: {fileID: 6945687812814335204}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WFXMR_MF 4P RIFLE2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19485,7 +19485,7 @@ GameObject:
   - component: {fileID: 2245953753386538465}
   - component: {fileID: 7899112109707970416}
   - component: {fileID: 762452584291805819}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24352,7 +24352,7 @@ GameObject:
   - component: {fileID: 8831275927161141805}
   - component: {fileID: 7246927917704499417}
   - component: {fileID: 1897589021734417116}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29224,7 +29224,8 @@ GameObject:
   - component: {fileID: 4920860646331897070}
   - component: {fileID: -7735625757804637009}
   - component: {fileID: -75004552628620223}
-  m_Layer: 0
+  - component: {fileID: 757076721097750857}
+  m_Layer: 6
   m_Name: AK47
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29378,7 +29379,12 @@ MonoBehaviour:
   firePoint: {fileID: 1222042221534310666}
   animator: {fileID: -75004552628620223}
   muzzleFlash: {fileID: 8363980212827241596}
-  maxAmmo: 300
+  laserLine: {fileID: 757076721097750857}
+  laserMaxDistance: 10
+  weaponLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  playerInventory: {fileID: 0}
   impactEnemy: {fileID: 5427926128662192595, guid: 2459373aa2d0bde45a4a777a0e9cc754, type: 3}
   bulletHoleEnemy: {fileID: 8048257710344919960, guid: 66123935b5def234d8cc3b3d7145449c, type: 3}
   impactDefault: {fileID: 6128707499685574258, guid: d6904676a266e93458b3370448f3d239, type: 3}
@@ -29405,6 +29411,113 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!120 &757076721097750857
+LineRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2911609292039236817}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 39cd92f17f8876643aced1b0970ff6a6, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 0.02
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: -1
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    textureScale: {x: 1, y: 1}
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_MaskInteraction: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0
+  m_ApplyActiveColorSpace: 1
 --- !u!1 &3579152380547890282
 GameObject:
   m_ObjectHideFlags: 0
@@ -29416,7 +29529,7 @@ GameObject:
   - component: {fileID: 100541579270043211}
   - component: {fileID: 8208544171504256661}
   - component: {fileID: 4702000849457681617}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34281,7 +34394,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4417128061531647216}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34314,7 +34427,7 @@ GameObject:
   - component: {fileID: 7942048529311632236}
   - component: {fileID: 8363980212827241596}
   - component: {fileID: 2704893604225915472}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WFXMR_MF 4P RIFLE2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39185,7 +39298,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458180961639432478}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39216,7 +39329,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1222042221534310666}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39232,7 +39345,7 @@ Transform:
   m_GameObject: {fileID: 6757931884824080161}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1277, z: 0.625}
+  m_LocalPosition: {x: 0, y: 0.1277, z: -0.259}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -39250,7 +39363,7 @@ GameObject:
   - component: {fileID: 3643284389575476784}
   - component: {fileID: 6209335740844529400}
   - component: {fileID: 8805455258237531479}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44117,7 +44230,7 @@ GameObject:
   - component: {fileID: 4978164486875713123}
   - component: {fileID: 991216783663774846}
   - component: {fileID: 6314602774610454341}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48984,7 +49097,7 @@ GameObject:
   - component: {fileID: 8337882631482473775}
   - component: {fileID: 7662776726036614846}
   - component: {fileID: 1089543146256810353}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53849,7 +53962,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1993195900618579491}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MuzzlePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53883,7 +53996,7 @@ GameObject:
   - component: {fileID: 5597409090694737856}
   - component: {fileID: 8223289617390779519}
   - component: {fileID: 3701071675409967184}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
