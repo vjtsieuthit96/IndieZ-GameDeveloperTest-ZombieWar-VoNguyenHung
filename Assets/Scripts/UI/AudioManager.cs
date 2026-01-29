@@ -23,6 +23,7 @@ public class AudioManager : MonoBehaviour
     [Header("SFX Pool Settings")]
     [SerializeField] private int poolSize = 15;
     private AudioSource[] sfxSources;
+    [SerializeField] private float sfxMaxDistance = 20f;
     private int sfxIndex = 0;
 
     private void Awake()
@@ -103,6 +104,8 @@ public class AudioManager : MonoBehaviour
             go.transform.parent = transform;
             AudioSource src = go.AddComponent<AudioSource>();
             src.spatialBlend = 1f;
+            src.minDistance = 1f;
+            src.maxDistance = sfxMaxDistance;
             sfxSources[i] = src;
         }
     }
@@ -110,6 +113,8 @@ public class AudioManager : MonoBehaviour
     public void PlaySound(AudioClip clip, Vector3 position)
     {
         if (clip == null) return;
+        float distance = Vector3.Distance(Camera.main.transform.position, position);
+        if (distance > sfxMaxDistance) return;
         AudioSource src = sfxSources[sfxIndex];
         src.transform.position = position;
         src.PlayOneShot(clip);

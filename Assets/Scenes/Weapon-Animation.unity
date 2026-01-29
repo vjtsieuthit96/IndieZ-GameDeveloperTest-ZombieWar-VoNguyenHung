@@ -1178,25 +1178,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1337684100332507925, guid: b7972e3d04fa44b42963831a5c76a2f0, type: 3}
-      propertyPath: m_Height
-      value: 1.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1337684100332507925, guid: b7972e3d04fa44b42963831a5c76a2f0, type: 3}
-      propertyPath: m_Radius
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1337684100332507925, guid: b7972e3d04fa44b42963831a5c76a2f0, type: 3}
-      propertyPath: m_Center.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1337684100332507925, guid: b7972e3d04fa44b42963831a5c76a2f0, type: 3}
-      propertyPath: m_Center.z
-      value: 0.12
-      objectReference: {fileID: 0}
     - target: {fileID: 1734157602916485582, guid: b7972e3d04fa44b42963831a5c76a2f0, type: 3}
       propertyPath: m_Name
-      value: Player2
+      value: MainPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 4970932237755647037, guid: b7972e3d04fa44b42963831a5c76a2f0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1237,6 +1221,22 @@ PrefabInstance:
     - target: {fileID: 4970932237755647037, guid: b7972e3d04fa44b42963831a5c76a2f0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7897462437711772138, guid: b7972e3d04fa44b42963831a5c76a2f0, type: 3}
+      propertyPath: TrackerSettings.BindingMode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7897462437711772138, guid: b7972e3d04fa44b42963831a5c76a2f0, type: 3}
+      propertyPath: TrackerSettings.PositionDamping.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7897462437711772138, guid: b7972e3d04fa44b42963831a5c76a2f0, type: 3}
+      propertyPath: TrackerSettings.PositionDamping.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7897462437711772138, guid: b7972e3d04fa44b42963831a5c76a2f0, type: 3}
+      propertyPath: TrackerSettings.PositionDamping.z
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12870,7 +12870,7 @@ GameObject:
   - component: {fileID: 1004588169}
   m_Layer: 0
   m_Name: MainCamera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

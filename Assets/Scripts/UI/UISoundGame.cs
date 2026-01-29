@@ -20,8 +20,7 @@ public class UISoundGame : MonoBehaviour
     }
     public void SetMusicVolume(float volume)
     {
-        AudioManager.Instance.SetMusicVolume(volume);
-       
+        AudioManager.Instance.SetMusicVolume(volume);       
     }
 
 

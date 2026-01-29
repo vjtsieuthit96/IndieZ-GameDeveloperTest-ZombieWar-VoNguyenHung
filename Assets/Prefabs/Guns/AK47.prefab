@@ -29384,7 +29384,7 @@ MonoBehaviour:
   laserMaxDistance: 10
   weaponLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   playerInventory: {fileID: 0}
   shootAudioSource: {fileID: 3909586637016497107}
   shootClip: {fileID: 8300000, guid: 8581f806dddef8046b4942de05b897be, type: 3}
