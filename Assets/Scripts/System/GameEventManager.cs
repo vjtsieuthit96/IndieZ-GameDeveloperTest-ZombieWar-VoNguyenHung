@@ -18,7 +18,20 @@ public class GameEventManager : MonoBehaviour
         }
     }
     // UI Events
-    #region UI 
+    #region UI     
+    // Sound
+    public event Action<float> OnMusicVolumeChanged;
+    public event Action<float> OnSFXVolumeChanged;
+   
+    public void InvokeMusicVolumeChanged(float value)
+    {
+        OnMusicVolumeChanged?.Invoke(value);
+    }
+
+    public void InvokeSFXVolumeChanged(float value)
+    {
+        OnSFXVolumeChanged?.Invoke(value);
+    }   
     // Joystick Events
     public event Action<Vector2>OnMoveJoystick;
     public event Action OnMoveRelease;
