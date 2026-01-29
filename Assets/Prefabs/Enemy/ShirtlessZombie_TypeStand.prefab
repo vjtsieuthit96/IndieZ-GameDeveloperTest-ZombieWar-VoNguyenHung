@@ -598,6 +598,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8327386835546836747}
+  - component: {fileID: 3994008773312385401}
   m_Layer: 0
   m_Name: hand_r
   m_TagString: Untagged
@@ -625,6 +626,29 @@ Transform:
   - {fileID: 6534918082440982330}
   m_Father: {fileID: 3598033947131113493}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &3994008773312385401
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319589098683354308}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Height: 0.3
+  m_Direction: 0
+  m_Center: {x: 0.07, y: 0, z: 0}
 --- !u!1 &1699770674542417968
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,6 +948,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 213048684078129028}
+  - component: {fileID: 7739652072029949935}
   m_Layer: 0
   m_Name: ball_r
   m_TagString: Untagged
@@ -946,6 +971,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 973561140374791882}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &7739652072029949935
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2241869634979003001}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.15
+  m_Height: 0.4
+  m_Direction: 0
+  m_Center: {x: -0.1, y: 0, z: 0}
 --- !u!1 &2268886706788809778
 GameObject:
   m_ObjectHideFlags: 0
@@ -1939,6 +1987,7 @@ GameObject:
   - component: {fileID: 3538535362878249218}
   - component: {fileID: 5857647725153455199}
   - component: {fileID: 8820989365543107689}
+  - component: {fileID: 876458149807086379}
   m_Layer: 0
   m_Name: ShirtlessZombie_TypeStand
   m_TagString: Enemy
@@ -2101,6 +2150,24 @@ MonoBehaviour:
   zombieData: {fileID: 11400000, guid: 8b2e87dc82f9c914d9d9ed1c3286e7aa, type: 2}
   playerTarget: {fileID: 0}
   hitCollider: {fileID: 5857647725153455199}
+--- !u!114 &876458149807086379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5354992946826128773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b04a7b59c0ea94f962e8f1c13eaef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handColliders:
+  - {fileID: 3994008773312385401}
+  legColliders:
+  - {fileID: 7739652072029949935}
+  headCollider: {fileID: 7736213141777870830}
+  zomStats: {fileID: 3538535362878249218}
 --- !u!1 &5379291923765502025
 GameObject:
   m_ObjectHideFlags: 0
@@ -2823,6 +2890,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6291865909225659254}
+  - component: {fileID: 7736213141777870830}
   m_Layer: 0
   m_Name: head
   m_TagString: Untagged
@@ -2848,6 +2916,27 @@ Transform:
   - {fileID: 4607294264801125930}
   m_Father: {fileID: 3429813038078738856}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &7736213141777870830
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6616487263092664097}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.15
+  m_Center: {x: 0, y: -0.05, z: 0}
 --- !u!1 &6947870003048091825
 GameObject:
   m_ObjectHideFlags: 0

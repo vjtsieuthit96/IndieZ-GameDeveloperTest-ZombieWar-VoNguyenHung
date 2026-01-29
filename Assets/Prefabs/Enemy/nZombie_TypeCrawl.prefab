@@ -962,6 +962,7 @@ GameObject:
   - component: {fileID: 8223561200618730105}
   - component: {fileID: 5079989735488214051}
   - component: {fileID: 5464107879466499238}
+  - component: {fileID: 8699784551920933470}
   m_Layer: 0
   m_Name: nZombie_TypeCrawl
   m_TagString: Enemy
@@ -1089,6 +1090,24 @@ MonoBehaviour:
   zombieData: {fileID: 11400000, guid: fe04dbe0bbb650643b40bb677f0f32d1, type: 2}
   playerTarget: {fileID: 0}
   hitCollider: {fileID: 5079989735488214051}
+--- !u!114 &8699784551920933470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3085408199132417200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b04a7b59c0ea94f962e8f1c13eaef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handColliders:
+  - {fileID: 3236805146328213039}
+  legColliders:
+  - {fileID: 8856979861564888671}
+  headCollider: {fileID: 4418435306573724773}
+  zomStats: {fileID: 8223561200618730105}
 --- !u!1 &3467924466545392912
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,6 +1343,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1427362640888257102}
+  - component: {fileID: 8856979861564888671}
   m_Layer: 0
   m_Name: Zombie_RightLeg
   m_TagString: Untagged
@@ -1347,6 +1367,29 @@ Transform:
   - {fileID: 211279700153285501}
   m_Father: {fileID: 329176163661348698}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &8856979861564888671
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4394186368921540626}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Height: 0.7
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.2, z: 0}
 --- !u!1 &4446155869720745268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2058,6 +2101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4297328523016107284}
+  - component: {fileID: 3236805146328213039}
   m_Layer: 0
   m_Name: Zombie_RightHand
   m_TagString: Untagged
@@ -2085,6 +2129,29 @@ Transform:
   - {fileID: 2922981088537683285}
   m_Father: {fileID: 7790557768369535399}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &3236805146328213039
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8357721194656843882}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.07
+  m_Height: 0.5
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8680688421943176284
 GameObject:
   m_ObjectHideFlags: 0
@@ -2284,6 +2351,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1289428625810883651}
+  - component: {fileID: 4418435306573724773}
   m_Layer: 0
   m_Name: Zombie_Head
   m_TagString: Untagged
@@ -2306,3 +2374,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5529885912062311085}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &4418435306573724773
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9195492861589128540}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0, z: 0.1}

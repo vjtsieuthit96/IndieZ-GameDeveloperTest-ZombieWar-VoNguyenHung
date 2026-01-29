@@ -910,6 +910,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 484216775948705146}
+  - component: {fileID: 370450241166838585}
   m_Layer: 0
   m_Name: ball_r
   m_TagString: Untagged
@@ -932,6 +933,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1080220130312721000}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &370450241166838585
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105571990882831375}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.15
+  m_Height: 0.4
+  m_Direction: 0
+  m_Center: {x: -0.1, y: 0, z: 0}
 --- !u!1 &2124883582342391569
 GameObject:
   m_ObjectHideFlags: 0
@@ -1956,6 +1980,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3758787290615201996}
+  - component: {fileID: 8298702733846775210}
   m_Layer: 0
   m_Name: hand_r
   m_TagString: Untagged
@@ -1983,6 +2008,29 @@ Transform:
   - {fileID: 366676021686076567}
   m_Father: {fileID: 7562518845436215987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &8298702733846775210
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5342324366155669223}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Height: 0.3
+  m_Direction: 0
+  m_Center: {x: 0.07, y: 0, z: 0}
 --- !u!1 &5350274295646539816
 GameObject:
   m_ObjectHideFlags: 0
@@ -1998,6 +2046,7 @@ GameObject:
   - component: {fileID: 1621917898835292431}
   - component: {fileID: 8303039759606350885}
   - component: {fileID: 968258208266057898}
+  - component: {fileID: 3315633586223437310}
   m_Layer: 0
   m_Name: ShirtlessZombie_TypeCrawl
   m_TagString: Enemy
@@ -2160,6 +2209,24 @@ MonoBehaviour:
   zombieData: {fileID: 11400000, guid: 8b2e87dc82f9c914d9d9ed1c3286e7aa, type: 2}
   playerTarget: {fileID: 0}
   hitCollider: {fileID: 8303039759606350885}
+--- !u!114 &3315633586223437310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5350274295646539816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b04a7b59c0ea94f962e8f1c13eaef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handColliders:
+  - {fileID: 8298702733846775210}
+  legColliders:
+  - {fileID: 370450241166838585}
+  headCollider: {fileID: 9045712144115404989}
+  zomStats: {fileID: 1621917898835292431}
 --- !u!1 &5409487333700588853
 GameObject:
   m_ObjectHideFlags: 0
@@ -2924,6 +2991,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4593852754743768704}
+  - component: {fileID: 9045712144115404989}
   m_Layer: 0
   m_Name: head
   m_TagString: Untagged
@@ -2949,6 +3017,27 @@ Transform:
   - {fileID: 5532065044662307898}
   m_Father: {fileID: 8608901107426506224}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &9045712144115404989
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7496563556539109317}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.15
+  m_Center: {x: 0, y: -0.05, z: 0}
 --- !u!1 &7765527070289007880
 GameObject:
   m_ObjectHideFlags: 0

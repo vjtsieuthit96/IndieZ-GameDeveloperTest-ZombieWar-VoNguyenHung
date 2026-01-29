@@ -859,6 +859,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2057173428354805467}
+  - component: {fileID: 7647537477601792249}
   m_Layer: 0
   m_Name: Zombie_Head
   m_TagString: Untagged
@@ -881,6 +882,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 47203024449061621}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &7647537477601792249
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2733744461812148753}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!1 &2801627038218843628
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,6 +912,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3792864948095811679}
+  - component: {fileID: 8950498079048384979}
   m_Layer: 0
   m_Name: Zombie_RightLeg
   m_TagString: Untagged
@@ -913,6 +936,29 @@ Transform:
   - {fileID: 9180979245450256049}
   m_Father: {fileID: 5435044865111291486}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &8950498079048384979
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2801627038218843628}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Height: 0.7
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.2, z: 0}
 --- !u!1 &3299396088845473545
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,6 +1069,7 @@ GameObject:
   - component: {fileID: 5249169278709733690}
   - component: {fileID: 7968999483387955482}
   - component: {fileID: 5083655004489176787}
+  - component: {fileID: 6694086889804757933}
   m_Layer: 0
   m_Name: nZombie_TypeStand
   m_TagString: Enemy
@@ -1150,6 +1197,24 @@ MonoBehaviour:
   zombieData: {fileID: 11400000, guid: fe04dbe0bbb650643b40bb677f0f32d1, type: 2}
   playerTarget: {fileID: 0}
   hitCollider: {fileID: 5249169278709733690}
+--- !u!114 &6694086889804757933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3558820789037399146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b04a7b59c0ea94f962e8f1c13eaef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handColliders:
+  - {fileID: 8572612623068703420}
+  legColliders:
+  - {fileID: 8950498079048384979}
+  headCollider: {fileID: 7647537477601792249}
+  zomStats: {fileID: 7968999483387955482}
 --- !u!1 &3780100458451256615
 GameObject:
   m_ObjectHideFlags: 0
@@ -1897,6 +1962,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8739329184162458943}
+  - component: {fileID: 8572612623068703420}
   m_Layer: 0
   m_Name: Zombie_RightHand
   m_TagString: Untagged
@@ -1924,6 +1990,29 @@ Transform:
   - {fileID: 9084622662935035665}
   m_Father: {fileID: 8839186664623343359}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &8572612623068703420
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7422524113392678671}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.07
+  m_Height: 0.5
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7539706540899474499
 GameObject:
   m_ObjectHideFlags: 0

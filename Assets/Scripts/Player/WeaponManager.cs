@@ -110,6 +110,10 @@ public class WeaponManager : MonoBehaviour
             if (hit.collider.CompareTag("Enemy"))
             {
                 ZombieStats enemyStats = hit.collider.GetComponent<ZombieStats>();
+                if (enemyStats == null)
+                {
+                    enemyStats = hit.collider.GetComponentInParent<ZombieStats>();
+                }
                 if (enemyStats != null)
                 {
                     enemyStats.TakeDamage(damage);
