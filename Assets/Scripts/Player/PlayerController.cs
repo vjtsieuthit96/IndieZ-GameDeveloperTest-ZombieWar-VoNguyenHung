@@ -6,7 +6,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform weaponSocket;
     [SerializeField] private GameObject armor;
     [SerializeField] private ItemDataSO defaultWeapon;
-    [SerializeField] private Animator animator;    
+    [SerializeField] private Animator animator;
+    [SerializeField] private Inventory Inventory;
 
     private int shootHash = Animator.StringToHash("Shoot");
     private int reloadHash = Animator.StringToHash("Reload");
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviour
         if (defaultWeapon != null && currentWeapon == null)
         {
             currentWeapon = ObjectPoolManager.SpawnObject(defaultWeapon.weaponPrefab, weaponSocket, Quaternion.identity);
-            currentWeapon.GetComponent<WeaponManager>().InitWeapon(defaultWeapon);
+            currentWeapon.GetComponent<WeaponManager>().InitWeapon(defaultWeapon,Inventory);            
             GameEventManager.Instance.InvokeWeaponChanged(defaultWeapon);
         }
     }
@@ -67,7 +68,7 @@ public class PlayerController : MonoBehaviour
         if (weaponData.weaponPrefab != null)
         {
             currentWeapon = ObjectPoolManager.SpawnObject(weaponData.weaponPrefab, weaponSocket, Quaternion.identity);
-            currentWeapon.GetComponent<WeaponManager>().InitWeapon(weaponData);
+            currentWeapon.GetComponent<WeaponManager>().InitWeapon(weaponData,Inventory);
         }
 
         GameEventManager.Instance.InvokeWeaponChanged(weaponData);

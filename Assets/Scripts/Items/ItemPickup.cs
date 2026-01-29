@@ -18,6 +18,7 @@ public class ItemPickup : MonoBehaviour
         {
             PlayerController playerController = other.GetComponentInParent<PlayerController>();
             PlayerStats playerStats = other.GetComponentInParent<PlayerStats>();
+            Inventory playerInventory = other.GetComponentInParent<Inventory>();
 
             switch (itemData.itemType)
             {
@@ -41,6 +42,12 @@ public class ItemPickup : MonoBehaviour
                         playerStats.Heal(itemData);
                     }
                     break;
+
+                case ItemType.Ammo:
+                    if (playerInventory != null)
+                        playerInventory.AddAmmo(itemData.amountAmmo);
+                    break;
+
             }
             Invoke(nameof(Respawn), respawnDelay);
             gameObject.SetActive(false);

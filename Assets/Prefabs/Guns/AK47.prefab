@@ -29379,12 +29379,12 @@ MonoBehaviour:
   firePoint: {fileID: 1222042221534310666}
   animator: {fileID: -75004552628620223}
   muzzleFlash: {fileID: 8363980212827241596}
-  maxAmmo: 300
   laserLine: {fileID: 757076721097750857}
   laserMaxDistance: 10
   weaponLayer:
     serializedVersion: 2
     m_Bits: 0
+  playerInventory: {fileID: 0}
   impactEnemy: {fileID: 5427926128662192595, guid: 2459373aa2d0bde45a4a777a0e9cc754, type: 3}
   bulletHoleEnemy: {fileID: 8048257710344919960, guid: 66123935b5def234d8cc3b3d7145449c, type: 3}
   impactDefault: {fileID: 6128707499685574258, guid: d6904676a266e93458b3370448f3d239, type: 3}

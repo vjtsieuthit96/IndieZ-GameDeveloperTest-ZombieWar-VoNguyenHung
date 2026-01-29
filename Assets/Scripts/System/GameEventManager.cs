@@ -89,7 +89,12 @@ public class GameEventManager : MonoBehaviour
     public event Action<ItemDataSO> OnWeaponChanged;
     public event Action<int, int> OnAmmoChanged;
     public event Action OnReloadStarted;
-    public event Action OnReloadFinished;    
+    public event Action OnReloadFinished;
+    public event Action<int> OnReserveAmmoChanged;
+    public void InvokeReserveAmmoChanged(int reserveAmmo)
+    {
+        OnReserveAmmoChanged?.Invoke(reserveAmmo);
+    }
 
     public void InvokeAmmoChanged(int current, int reserve)
     {
@@ -106,7 +111,7 @@ public class GameEventManager : MonoBehaviour
     public void InvokeWeaponChanged(ItemDataSO weaponData)
     {
         OnWeaponChanged?.Invoke(weaponData);
-    }
+    }        
     #endregion
 
     #region GAMEPLAY

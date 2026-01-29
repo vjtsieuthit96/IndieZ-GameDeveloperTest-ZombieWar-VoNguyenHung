@@ -3,7 +3,9 @@ public enum ItemType
 {
     Weapon,
     Armor,
-    Heal
+    Heal,
+    Ammo,
+    Grenade
 }
 [CreateAssetMenu(fileName = "NewItem", menuName = "Game/Item")]
 public class ItemDataSO : ScriptableObject
@@ -17,6 +19,12 @@ public class ItemDataSO : ScriptableObject
     public int magazineSize;   
     public GameObject weaponPrefab;
     public Sprite icon;
+
+    [Header("Ammo")]
+    public int amountAmmo;
+
+    [Header("Grenade")]
+    public int amountGrenade;
 
     [Header("Armor Stats")]
     public float armorValue;
