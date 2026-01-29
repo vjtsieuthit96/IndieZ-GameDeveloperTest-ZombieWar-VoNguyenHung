@@ -16,4 +16,11 @@ public class SurvivalTimer : MonoBehaviour
             nextMilestone += 300f;
         }
     }
+    public float ElapsedTime => elapsedTime;
+
+    public void SetElapsedTime(float time)
+    {
+        elapsedTime = time;
+        nextMilestone = ((int)(elapsedTime / 300f) + 1) * 300f;
+    }
 }

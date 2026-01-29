@@ -99,5 +99,30 @@ public class PlayerController : MonoBehaviour
         animator.SetBool(isReloadingHash, false);
     }
 
+    public string GetCurrentWeaponName()
+    {
+        if (currentWeapon != null)
+            return currentWeapon.name;
+        return "None";
+    }
+    public int GetCurrentAmmoInMag()
+    {
+        if (currentWeapon != null)
+        {
+            WeaponManager wm = currentWeapon.GetComponent<WeaponManager>();
+            if (wm != null)
+                return wm.CurrentAmmoInMag;
+        }
+        return 0;
+    }
+    public void SetCurrentAmmoInMag(int amount)
+    {
+        if (currentWeapon != null)
+        {
+            WeaponManager wm = currentWeapon.GetComponent<WeaponManager>();
+            if (wm != null)
+                wm.SetAmmoInMag(amount);
+        }
+    }
 
 }

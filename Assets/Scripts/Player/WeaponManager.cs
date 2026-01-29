@@ -21,6 +21,7 @@ public class WeaponManager : MonoBehaviour
     private float nextFireTime;
     private int magazineSize;
     private int currentAmmoInMag;
+    public int CurrentAmmoInMag => currentAmmoInMag;
     private int reloadHash = Animator.StringToHash("Reload");
     private int recoilHash = Animator.StringToHash("Recoil");
     private bool isHolding;
@@ -163,5 +164,10 @@ public class WeaponManager : MonoBehaviour
         {
             laserLine.SetPosition(1, firePoint.position + firePoint.forward * laserMaxDistance);
         }
+    }
+    public void SetAmmoInMag(int amount)
+    {
+        currentAmmoInMag = Mathf.Clamp(amount, 0, magazineSize);
+        GameEventManager.Instance.InvokeAmmoChanged(currentAmmoInMag, playerInventory.GetAmmo());
     }
 }

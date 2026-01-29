@@ -24,7 +24,7 @@ public class ZombieAI : MonoBehaviour
     private bool isDead = false;
     private float savedSpeed;    
     //evaluation freq
-    private float evalInterval = 0.5f;
+    private float evalInterval = 0.15f;
     private float evalTimer = 0f;
 
     public void SetTarget(Transform target)
