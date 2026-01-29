@@ -7,7 +7,8 @@ public class UIStatsWeaponDisplay : MonoBehaviour
 {    
     [Header("Weapon")]
     [SerializeField] private Image weaponIcon;
-    [SerializeField] private TMP_Text ammoText;
+    [SerializeField] private TMP_Text magText;    
+    [SerializeField] private TMP_Text reserveText;
 
     [Header("Stats")]
     [SerializeField] private Slider hpSlider;
@@ -20,13 +21,13 @@ public class UIStatsWeaponDisplay : MonoBehaviour
     [SerializeField] private float lowHpThreshold = 30f;
 
     private Coroutine blinkCoroutine;
- 
+
     private void OnEnable()
     {
         GameEventManager.Instance.OnWeaponChanged += UpdateWeaponUI;
         GameEventManager.Instance.OnPlayerStatsChanged += UpdateStatsUI;
-        GameEventManager.Instance.OnAmmoChanged += UpdateAmmoUI;       
-
+        GameEventManager.Instance.OnAmmoChanged += UpdateAmmoUI;
+        GameEventManager.Instance.OnReserveAmmoChanged += UpdateReserveOnlyUI;
     }
 
     private void OnDisable()
@@ -34,8 +35,10 @@ public class UIStatsWeaponDisplay : MonoBehaviour
         GameEventManager.Instance.OnWeaponChanged -= UpdateWeaponUI;
         GameEventManager.Instance.OnPlayerStatsChanged -= UpdateStatsUI;
         GameEventManager.Instance.OnAmmoChanged -= UpdateAmmoUI;
+        GameEventManager.Instance.OnReserveAmmoChanged -= UpdateReserveOnlyUI;
     }
-    
+
+
     private void UpdateWeaponUI(ItemDataSO weaponData)
     {
         if (weaponData != null && weaponIcon != null)
@@ -45,10 +48,13 @@ public class UIStatsWeaponDisplay : MonoBehaviour
     }
     private void UpdateAmmoUI(int current, int reserve)
     {
-        if (ammoText != null)
-        {
-            ammoText.text = $"{current} / {reserve}";
-        }
+        magText.text = $"{current} /";
+        reserveText.text = $" {reserve}";
+    }
+
+    private void UpdateReserveOnlyUI(int reserve)
+    {
+        reserveText.text = $" {reserve}";
     }
 
     private void UpdateStatsUI(float hp, float armor)

@@ -6,13 +6,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform weaponSocket;
     [SerializeField] private GameObject armor;
     [SerializeField] private ItemDataSO defaultWeapon;
-    [SerializeField] private Animator animator;    
+    [SerializeField] private Animator animator;
+    [SerializeField] private Inventory Inventory;
+    [SerializeField] private AudioSource AudioSource;
+    [SerializeField] private AudioClip[] pickUpClip;
 
     private int shootHash = Animator.StringToHash("Shoot");
     private int reloadHash = Animator.StringToHash("Reload");
     private int isReloadingHash = Animator.StringToHash("isReloading");
     private GameObject currentWeapon;
     private bool isReloading = false;
+    private bool restoredFromSave = false;
+
+    private ItemDataSO equippedWeapon;
     void OnEnable()
     {
         GameEventManager.Instance.OnArmorBroken += DisableArmor;
@@ -25,10 +31,11 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        if (defaultWeapon != null && currentWeapon == null)
+        if (defaultWeapon != null && currentWeapon == null && !restoredFromSave)
         {
             currentWeapon = ObjectPoolManager.SpawnObject(defaultWeapon.weaponPrefab, weaponSocket, Quaternion.identity);
-            currentWeapon.GetComponent<WeaponManager>().InitWeapon(defaultWeapon);
+            currentWeapon.GetComponent<WeaponManager>().InitWeapon(defaultWeapon,Inventory);  
+            equippedWeapon = defaultWeapon;
             GameEventManager.Instance.InvokeWeaponChanged(defaultWeapon);
         }
     }
@@ -67,10 +74,11 @@ public class PlayerController : MonoBehaviour
         if (weaponData.weaponPrefab != null)
         {
             currentWeapon = ObjectPoolManager.SpawnObject(weaponData.weaponPrefab, weaponSocket, Quaternion.identity);
-            currentWeapon.GetComponent<WeaponManager>().InitWeapon(weaponData);
+            currentWeapon.GetComponent<WeaponManager>().InitWeapon(weaponData,Inventory);
         }
-
+        equippedWeapon = weaponData;
         GameEventManager.Instance.InvokeWeaponChanged(weaponData);
+        restoredFromSave = true;
     }
 
     // ----- Shooting -----
@@ -98,5 +106,34 @@ public class PlayerController : MonoBehaviour
         animator.SetBool(isReloadingHash, false);
     }
 
+    public string GetCurrentWeaponName()
+    {
+        if (currentWeapon != null)
+            return equippedWeapon.itemName;
+        return "None";
+    }
+    public int GetCurrentAmmoInMag()
+    {
+        if (currentWeapon != null)
+        {
+            WeaponManager wm = currentWeapon.GetComponent<WeaponManager>();
+            if (wm != null)
+                return wm.CurrentAmmoInMag;
+        }
+        return 0;
+    }
+    public void SetCurrentAmmoInMag(int amount)
+    {
+        if (currentWeapon != null)
+        {
+            WeaponManager wm = currentWeapon.GetComponent<WeaponManager>();
+            if (wm != null)
+                wm.SetAmmoInMag(amount);
+        }
+    }
+    public void PlayAudio(int index)
+    {       
+        AudioSource.PlayOneShot(pickUpClip[index]);
+    }
 
 }

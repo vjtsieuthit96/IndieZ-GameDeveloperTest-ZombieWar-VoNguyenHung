@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: M4A1
   m_EditorClassIdentifier: 
   itemType: 0
-  itemName: 
-  damage: 10
-  fireRate: 0.3
+  itemName: M4A1
+  damage: 18
+  fireRate: 0.25
   magazineSize: 30
   weaponPrefab: {fileID: 3333320974960736836, guid: 17e18953a6b1a3e4bb9709c1e5be0e1e, type: 3}
   icon: {fileID: 21300000, guid: be0ff90e8befd7845b3e52e656a58251, type: 3}
+  amountAmmo: 0
+  amountGrenade: 0
   armorValue: 0
   healAmount: 0

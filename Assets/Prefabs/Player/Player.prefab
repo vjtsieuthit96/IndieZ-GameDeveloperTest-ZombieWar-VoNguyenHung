@@ -2995,6 +2995,7 @@ GameObject:
   - component: {fileID: 5204247525074885498}
   - component: {fileID: 5674533501582399890}
   - component: {fileID: 6401209271188696016}
+  - component: {fileID: 3343244601982568600}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3069,6 +3070,21 @@ MonoBehaviour:
   armor: {fileID: 1409591593969377600}
   defaultWeapon: {fileID: 11400000, guid: b813b4411c47dc34da1c9df16ac93f8b, type: 2}
   animator: {fileID: 3445559981746198809}
+  Inventory: {fileID: 3343244601982568600}
+--- !u!114 &3343244601982568600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5841137718534908255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a254c81cb8e597c4080dc1cc85cdd512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAmmo: 300
+  reserveAmmo: 60
 --- !u!1 &6003328835965952105
 GameObject:
   m_ObjectHideFlags: 0

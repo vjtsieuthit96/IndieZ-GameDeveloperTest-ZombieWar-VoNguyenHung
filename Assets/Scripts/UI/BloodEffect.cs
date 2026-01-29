@@ -7,6 +7,9 @@ public class BloodEffect : MonoBehaviour
     [SerializeField] private Image bloodImage;
     [SerializeField] private Sprite[] bloodSprites;
     [SerializeField] private float fadeDuration = 0.5f;
+    [SerializeField] private float bloodCooldown = 3f;
+    private float lastBloodTime = -999f;
+
 
     private Coroutine currentFade;
     private bool isDead = false;
@@ -32,11 +35,14 @@ public class BloodEffect : MonoBehaviour
     private void HandleDeath()
     {
         isDead = true;    
-    }
+    }  
 
     private void ShowBlood(float damageAmount)
     {
         if (isDead) return;
+        
+        if (Time.time - lastBloodTime < bloodCooldown) return;
+        lastBloodTime = Time.time;
 
         int index = Random.Range(0, bloodSprites.Length);
         bloodImage.sprite = bloodSprites[index];

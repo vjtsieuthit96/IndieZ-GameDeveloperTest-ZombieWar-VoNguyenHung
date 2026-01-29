@@ -18,7 +18,20 @@ public class GameEventManager : MonoBehaviour
         }
     }
     // UI Events
-    #region UI 
+    #region UI     
+    // Sound
+    public event Action<float> OnMusicVolumeChanged;
+    public event Action<float> OnSFXVolumeChanged;
+   
+    public void InvokeMusicVolumeChanged(float value)
+    {
+        OnMusicVolumeChanged?.Invoke(value);
+    }
+
+    public void InvokeSFXVolumeChanged(float value)
+    {
+        OnSFXVolumeChanged?.Invoke(value);
+    }   
     // Joystick Events
     public event Action<Vector2>OnMoveJoystick;
     public event Action OnMoveRelease;
@@ -89,7 +102,12 @@ public class GameEventManager : MonoBehaviour
     public event Action<ItemDataSO> OnWeaponChanged;
     public event Action<int, int> OnAmmoChanged;
     public event Action OnReloadStarted;
-    public event Action OnReloadFinished;    
+    public event Action OnReloadFinished;
+    public event Action<int> OnReserveAmmoChanged;
+    public void InvokeReserveAmmoChanged(int reserveAmmo)
+    {
+        OnReserveAmmoChanged?.Invoke(reserveAmmo);
+    }
 
     public void InvokeAmmoChanged(int current, int reserve)
     {
@@ -106,7 +124,7 @@ public class GameEventManager : MonoBehaviour
     public void InvokeWeaponChanged(ItemDataSO weaponData)
     {
         OnWeaponChanged?.Invoke(weaponData);
-    }
+    }        
     #endregion
 
     #region GAMEPLAY
@@ -124,6 +142,20 @@ public class GameEventManager : MonoBehaviour
         OnSurvivalMilestone?.Invoke(milestone);
     }
 
+    #endregion
+
+    #region EnemyEvents
+    //Enemy Events
+    public event Action<GameObject> OnEnemyDie;
+    public event Action<GameObject> OnEnemyHit;
+    public void InvokeEnemyDie(GameObject enemy)
+    {
+        OnEnemyDie?.Invoke(enemy);
+    }
+    public void InvokeEnemyHit(GameObject enemy)
+    {
+        OnEnemyHit?.Invoke(enemy);
+    }
     #endregion
 
 }
