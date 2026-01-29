@@ -108,8 +108,7 @@ public class SaveGameManager : MonoBehaviour
     private void HandlePlayerDied()
     {
         PlayerPrefs.DeleteAll(); 
-        Debug.Log("Player died, save cleared!");        
-        SceneManager.LoadScene(0);
+        Debug.Log("Player died, save cleared!");               
     }
 }
 
