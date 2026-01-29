@@ -10,6 +10,8 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private float laserMaxDistance = 50f;
     [SerializeField] private LayerMask weaponLayer;
     [SerializeField] private Inventory playerInventory;
+    [SerializeField] private AudioSource shootAudioSource;
+    [SerializeField] private AudioClip shootClip;
     [Header("Impact Prefabs")]
     [SerializeField] private GameObject impactEnemy;
     [SerializeField] private GameObject bulletHoleEnemy;
@@ -79,6 +81,11 @@ public class WeaponManager : MonoBehaviour
         if (isHolding && Time.time >= nextFireTime && currentAmmoInMag > 0)
         {
             Shoot();
+            if (!muzzleFlash.isPlaying)
+            {
+                muzzleFlash.Play();
+            }
+            shootAudioSource.PlayOneShot(shootClip);
             nextFireTime = Time.time + fireRate;
         }
         if (currentAmmoInMag <= 0 && !isReloading && playerInventory.GetAmmo() > 0)
@@ -92,11 +99,7 @@ public class WeaponManager : MonoBehaviour
     {
         if (currentAmmoInMag <= 0 || isReloading) return;
 
-        RaycastHit hit;
-        if (!muzzleFlash.isPlaying)
-        {
-            muzzleFlash.Play();
-        }
+        RaycastHit hit;        
 
         // Capsule bullet parameters
         Vector3 start = firePoint.position;

@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     private int isReloadingHash = Animator.StringToHash("isReloading");
     private GameObject currentWeapon;
     private bool isReloading = false;
+    private bool restoredFromSave = false;
+
+    private ItemDataSO equippedWeapon;
     void OnEnable()
     {
         GameEventManager.Instance.OnArmorBroken += DisableArmor;
@@ -26,10 +29,11 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        if (defaultWeapon != null && currentWeapon == null)
+        if (defaultWeapon != null && currentWeapon == null && !restoredFromSave)
         {
             currentWeapon = ObjectPoolManager.SpawnObject(defaultWeapon.weaponPrefab, weaponSocket, Quaternion.identity);
-            currentWeapon.GetComponent<WeaponManager>().InitWeapon(defaultWeapon,Inventory);            
+            currentWeapon.GetComponent<WeaponManager>().InitWeapon(defaultWeapon,Inventory);  
+            equippedWeapon = defaultWeapon;
             GameEventManager.Instance.InvokeWeaponChanged(defaultWeapon);
         }
     }
@@ -70,8 +74,9 @@ public class PlayerController : MonoBehaviour
             currentWeapon = ObjectPoolManager.SpawnObject(weaponData.weaponPrefab, weaponSocket, Quaternion.identity);
             currentWeapon.GetComponent<WeaponManager>().InitWeapon(weaponData,Inventory);
         }
-
+        equippedWeapon = weaponData;
         GameEventManager.Instance.InvokeWeaponChanged(weaponData);
+        restoredFromSave = true;
     }
 
     // ----- Shooting -----
@@ -102,7 +107,7 @@ public class PlayerController : MonoBehaviour
     public string GetCurrentWeaponName()
     {
         if (currentWeapon != null)
-            return currentWeapon.name;
+            return equippedWeapon.itemName;
         return "None";
     }
     public int GetCurrentAmmoInMag()

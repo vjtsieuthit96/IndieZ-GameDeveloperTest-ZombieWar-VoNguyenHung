@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SaveGameManager : MonoBehaviour
@@ -12,7 +13,7 @@ public class SaveGameManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("PlayerHP"))
         {
-            RestorePlayer();
+            RestorePlayer();           
         }
         else
         {
@@ -43,10 +44,8 @@ public class SaveGameManager : MonoBehaviour
 
         PlayerPrefs.SetInt("AmmoInMag", ammoInMag);
         PlayerPrefs.SetInt("ReserveAmmo", inventory.GetAmmo());
-        PlayerPrefs.SetInt("ReserveGrenade", inventory.GetGrenade());
-
-        PlayerPrefs.SetString("CurrentWeapon", currentWeapon);
-
+        PlayerPrefs.SetInt("ReserveGrenade", inventory.GetGrenade());        
+        PlayerPrefs.SetString("CurrentWeapon", currentWeapon);        
         PlayerPrefs.Save();
         Debug.Log("Game Saved!");
     }
@@ -60,14 +59,12 @@ public class SaveGameManager : MonoBehaviour
         int reserveAmmo = PlayerPrefs.GetInt("ReserveAmmo", 0);
         int reserveGrenade = PlayerPrefs.GetInt("ReserveGrenade", 0);
         int ammoInMag = PlayerPrefs.GetInt("AmmoInMag", 0);
-
         string currentWeaponName = PlayerPrefs.GetString("CurrentWeapon", "None");
 
         playerStats.SetStats(hp, armor);
         survivalTimer.SetElapsedTime(survivalTime);
         inventory.SetAmmo(reserveAmmo);
-        inventory.SetGrenade(reserveGrenade);
-
+        inventory.SetGrenade(reserveGrenade);        
         ItemDataSO weaponData = ItemDataBase.GetItemByName(currentWeaponName);
         if (weaponData != null)
         {
@@ -97,7 +94,7 @@ public class SaveGameManager : MonoBehaviour
             SaveGame(ammoInMag, currentWeapon);
             Debug.Log("Auto-saved on pause");
         }
-    }
+    }   
 
     void OnApplicationQuit()
     {
