@@ -23,24 +23,21 @@ public class ItemPickup : MonoBehaviour
             {
                 case ItemType.Weapon:
                     if (playerController != null)
-                    {
-                        Debug.Log("Player picked up weapon: " + itemData.itemName);
+                    {                        
                         playerController.EquipWeapon(itemData);
                     }
                     break;
 
                 case ItemType.Armor:
                     if (playerStats != null)
-                    {
-                        Debug.Log("Player picked up armor: " + itemData.itemName);
+                    {                        
                         playerStats.AddArmor(itemData); 
                     }
                     break;
 
                 case ItemType.Heal:
                     if (playerStats != null)
-                    {
-                        Debug.Log($"Player healed: +{itemData.healAmount}");
+                    {                        
                         playerStats.Heal(itemData);
                     }
                     break;

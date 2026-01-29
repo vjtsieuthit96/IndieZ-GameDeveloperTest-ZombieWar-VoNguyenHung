@@ -39,7 +39,7 @@ public class ChaseNode : Node
             if (type == ZombieType.Crawl && !hasSetStanding)
             {
                 hasSetStanding = true;
-                animator.SetTrigger(AnimationHashes.Z_isStanding); 
+                animator.SetTrigger(AnimationHashes.Z_isStanding);                
             }
 
             state = NodeState.SUCCESS; 

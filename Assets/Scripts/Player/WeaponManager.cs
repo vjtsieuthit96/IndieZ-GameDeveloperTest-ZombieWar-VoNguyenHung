@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -6,6 +7,9 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private ParticleSystem muzzleFlash;
     [SerializeField] private int maxAmmo = 300;
+    [SerializeField] private LineRenderer laserLine;
+    [SerializeField] private float laserMaxDistance = 50f;
+    [SerializeField] private LayerMask weaponLayer;
     [Header("Impact Prefabs")]
     [SerializeField] private GameObject impactEnemy;
     [SerializeField] private GameObject bulletHoleEnemy;
@@ -30,7 +34,9 @@ public class WeaponManager : MonoBehaviour
         magazineSize = weaponData.magazineSize;      
         currentAmmoInMag = magazineSize;        
         reserveAmmo = Mathf.Max(0, maxAmmo - magazineSize);
-        GameEventManager.Instance.InvokeAmmoChanged(currentAmmoInMag, reserveAmmo);       
+        GameEventManager.Instance.InvokeAmmoChanged(currentAmmoInMag, reserveAmmo);
+        laserLine.enabled = true;
+
     }
     void OnEnable()
     {
@@ -47,6 +53,11 @@ public class WeaponManager : MonoBehaviour
         GameEventManager.Instance.OnReloadClicked -= HandleReloadClicked;
         GameEventManager.Instance.OnReloadFinished -= HandleReloadFinished;
 
+    }
+
+    private void Start()
+    {
+        laserLine.enabled = true;
     }
 
     private void HandleShootHold()
@@ -74,7 +85,9 @@ public class WeaponManager : MonoBehaviour
         {
             StartReload();
         }
+        UpdateLaser();
     }
+    
 
     private void Shoot()
     {
@@ -84,12 +97,14 @@ public class WeaponManager : MonoBehaviour
         {
             muzzleFlash.Play();
         }
-
-        if (Physics.Raycast(firePoint.position, firePoint.forward, out hit, 25f))
+        // Capsulebullet parameters
+        Vector3 start = firePoint.position;
+        Vector3 end = firePoint.position + firePoint.forward * 0.25f; 
+        float radius = 0.3f; 
+        int mask = ~weaponLayer;
+        if (Physics.CapsuleCast(start, end, radius, firePoint.forward, out hit, 25f,mask))
         {
-            animator.SetTrigger(recoilHash);
-
-            Debug.Log("Hit: " + hit.collider.name);
+            animator.SetTrigger(recoilHash);         
 
             if (hit.collider.CompareTag("Enemy"))
             {
@@ -130,5 +145,19 @@ public class WeaponManager : MonoBehaviour
         isReloading = false;
 
         GameEventManager.Instance.InvokeAmmoChanged(currentAmmoInMag, reserveAmmo);
+    }
+    private void UpdateLaser()
+    {
+        laserLine.SetPosition(0, firePoint.position);
+
+        RaycastHit hit;
+        if (Physics.Raycast(firePoint.position, firePoint.forward, out hit, laserMaxDistance))
+        {
+            laserLine.SetPosition(1, hit.point);
+        }
+        else
+        {
+            laserLine.SetPosition(1, firePoint.position + firePoint.forward * laserMaxDistance);
+        }
     }
 }

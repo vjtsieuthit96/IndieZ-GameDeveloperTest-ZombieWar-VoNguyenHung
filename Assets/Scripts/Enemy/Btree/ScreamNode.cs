@@ -17,8 +17,7 @@ public class ScreamNode : Node
         {
             if (Random.value <= chance)
             {
-                animator.SetTrigger(AnimationHashes.Z_Scream);
-                Debug.Log("Scream!");
+                animator.SetTrigger(AnimationHashes.Z_Scream);                
             }
             hasScreamed = true;
         }      
