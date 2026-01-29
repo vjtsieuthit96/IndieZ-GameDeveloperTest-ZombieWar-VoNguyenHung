@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ItemDataSO defaultWeapon;
     [SerializeField] private Animator animator;
     [SerializeField] private Inventory Inventory;
+    [SerializeField] private AudioSource AudioSource;
+    [SerializeField] private AudioClip[] pickUpClip;
 
     private int shootHash = Animator.StringToHash("Shoot");
     private int reloadHash = Animator.StringToHash("Reload");
@@ -128,6 +130,10 @@ public class PlayerController : MonoBehaviour
             if (wm != null)
                 wm.SetAmmoInMag(amount);
         }
+    }
+    public void PlayAudio(int index)
+    {       
+        AudioSource.PlayOneShot(pickUpClip[index]);
     }
 
 }
