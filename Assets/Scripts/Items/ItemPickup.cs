@@ -26,13 +26,15 @@ public class ItemPickup : MonoBehaviour
                     if (playerController != null)
                     {                        
                         playerController.EquipWeapon(itemData);
+                        playerController.PlayAudio(0);
                     }
                     break;
 
                 case ItemType.Armor:
                     if (playerStats != null)
                     {                        
-                        playerStats.AddArmor(itemData); 
+                        playerStats.AddArmor(itemData);
+                        playerController.PlayAudio(0);
                     }
                     break;
 
@@ -40,12 +42,14 @@ public class ItemPickup : MonoBehaviour
                     if (playerStats != null)
                     {                        
                         playerStats.Heal(itemData);
+                        playerController.PlayAudio(1);
                     }
                     break;
 
                 case ItemType.Ammo:
                     if (playerInventory != null)
                         playerInventory.AddAmmo(itemData.amountAmmo);
+                    playerController.PlayAudio(0);
                     break;
 
             }

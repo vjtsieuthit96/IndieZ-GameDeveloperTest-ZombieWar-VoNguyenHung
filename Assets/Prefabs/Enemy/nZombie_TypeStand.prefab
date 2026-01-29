@@ -1070,6 +1070,7 @@ GameObject:
   - component: {fileID: 7968999483387955482}
   - component: {fileID: 5083655004489176787}
   - component: {fileID: 6694086889804757933}
+  - component: {fileID: 5564062321747238268}
   m_Layer: 7
   m_Name: nZombie_TypeStand
   m_TagString: Enemy
@@ -1130,7 +1131,7 @@ NavMeshAgent:
   m_Acceleration: 2
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.5
+  m_StoppingDistance: 0.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1215,6 +1216,37 @@ MonoBehaviour:
   - {fileID: 8950498079048384979}
   headCollider: {fileID: 7647537477601792249}
   zomStats: {fileID: 7968999483387955482}
+--- !u!114 &5564062321747238268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3558820789037399146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97752ccd123d8684199cf6142704f377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombieAggressive:
+  - {fileID: 8300000, guid: 12e7285fa38aaf943a0ed8c7f3c684eb, type: 3}
+  - {fileID: 8300000, guid: bc2baab908f1b004691a6ecf7044f61c, type: 3}
+  zombieDeath:
+  - {fileID: 8300000, guid: 1d92c5ac0e056b045b4461b147f95be5, type: 3}
+  - {fileID: 8300000, guid: 9df77b70cadc8384ca073a95aebc666f, type: 3}
+  zombieGrowl:
+  - {fileID: 8300000, guid: f1ff3e33006a291449618f6fc613e928, type: 3}
+  - {fileID: 8300000, guid: ebb96c703224744479e6294bd49515d9, type: 3}
+  zombieChase:
+  - {fileID: 8300000, guid: 431639240355b8f4db291a8c24e64ae8, type: 3}
+  - {fileID: 8300000, guid: fdcd71cb10b14994e8203038d76c3ec3, type: 3}
+  - {fileID: 8300000, guid: 8ab097db9eb9e154084bb24092c33913, type: 3}
+  - {fileID: 8300000, guid: c8bb80b3c17039242bd2d78d5b9cbf40, type: 3}
+  - {fileID: 8300000, guid: 4a2c2d1bed39ba64d8a29d2b09832699, type: 3}
+  - {fileID: 8300000, guid: d4779f4d0f108bf43847b2d840374d19, type: 3}
+  zombieGrunt: {fileID: 8300000, guid: b771cd0787c16e64e8e8ba11c3c83734, type: 3}
+  zombieHiss: {fileID: 8300000, guid: 168c9a5ac7025814ea9c89e5098a3cad, type: 3}
+  zombieMoan: {fileID: 8300000, guid: ceb2474913e8b5e40b17213af473d784, type: 3}
 --- !u!1 &3780100458451256615
 GameObject:
   m_ObjectHideFlags: 0

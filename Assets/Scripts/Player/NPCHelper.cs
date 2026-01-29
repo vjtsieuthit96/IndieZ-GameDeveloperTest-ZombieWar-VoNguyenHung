@@ -1,15 +1,20 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class NPCHelper : MonoBehaviour
 {
     [SerializeField] private Transform firePoint;
     [SerializeField] private float damage = 10f;
-    [SerializeField] private float fireRate = 1f;
+    [SerializeField] private float fireRate = 0.25f;
     [SerializeField] private float range = 25f;
     [SerializeField] private float radius = 0.3f;
     [SerializeField] private LayerMask zombieLayer;
     [SerializeField] private LayerMask obstacleMask;
     [SerializeField] private float rotateSpeed = 5f;
+    [SerializeField] private AudioSource shootAudioSource;
+    [SerializeField] private AudioClip shootClip;
+    [SerializeField] private ParticleSystem muzzleFlash;
+    [SerializeField] private Animator animator;
 
     [Header("Impact Prefabs")]
     [SerializeField] private GameObject impactEnemy;
@@ -18,6 +23,9 @@ public class NPCHelper : MonoBehaviour
     [SerializeField] private GameObject bulletHoleDefault;
 
     private float nextFireTime;
+    private int shotsFired = 0;
+    private bool isReloading = false;
+    private int shootHash = Animator.StringToHash("Shoot");
 
     void Update()
     {
@@ -25,11 +33,27 @@ public class NPCHelper : MonoBehaviour
         if (hits.Length > 0 && Time.time >= nextFireTime)
         {
             Transform target = GetVisibleZombie(hits);
+            if (shotsFired >= 30 || isReloading)
+                return;
             if (target != null)
             {
                 RotateTowards(target);
                 Shoot(target);
+                animator.SetTrigger(shootHash);
+                shootAudioSource.PlayOneShot(shootClip);
+                if (!muzzleFlash.isPlaying)
+                {
+                    muzzleFlash.Play();
+                }
                 nextFireTime = Time.time + fireRate;
+                shotsFired++;
+                Debug.Log("Shots Fired: " + shotsFired);
+                {
+                    if(shotsFired >= 30)
+                    {
+                        StartCoroutine(ReloadDelay());
+                    }
+                }
             }
         }
     }
@@ -67,7 +91,8 @@ public class NPCHelper : MonoBehaviour
         Vector3 end = firePoint.position + dir * 0.25f;
 
         if (Physics.CapsuleCast(start, end, radius, dir, out RaycastHit hit, range, zombieLayer))
-        {
+        {          
+            
             ZombieStats enemyStats = hit.collider.GetComponent<ZombieStats>() ?? hit.collider.GetComponentInParent<ZombieStats>();
             if (enemyStats != null)
             {
@@ -85,6 +110,15 @@ public class NPCHelper : MonoBehaviour
                 ObjectPoolManager.SpawnObject(bulletHoleDefault, hit.point, Quaternion.LookRotation(hit.normal));
             }
         }
+    }
+
+    private IEnumerator ReloadDelay()
+    {
+        isReloading = true;
+        float reloadTime = Random.Range(5f, 7f);
+        yield return new WaitForSeconds(reloadTime);
+        shotsFired = 0;
+        isReloading = false;
     }
 
     private void OnDrawGizmosSelected()
