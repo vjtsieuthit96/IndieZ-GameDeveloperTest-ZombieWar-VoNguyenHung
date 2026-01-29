@@ -469,7 +469,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 42d5bd4f1806f7b4894e48e5d1dc9b93, type: 2}
+  - {fileID: 2100000, guid: e08a2aa9bdb44f04299a6e58059893c5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1020,8 +1020,9 @@ GameObject:
   - component: {fileID: 3448361634989688710}
   - component: {fileID: 3182261236937898623}
   - component: {fileID: 7301501078680491728}
-  - component: {fileID: 7968999483387955482}
   - component: {fileID: 5249169278709733690}
+  - component: {fileID: 7968999483387955482}
+  - component: {fileID: 5083655004489176787}
   m_Layer: 0
   m_Name: nZombie_TypeStand
   m_TagString: Enemy
@@ -1090,22 +1091,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &7968999483387955482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3558820789037399146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a13cee6926fa4a34c9c37efb23bc8549, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: fe04dbe0bbb650643b40bb677f0f32d1, type: 2}
-  currentHP: 0
-  skinnedMeshes:
-  - {fileID: 4601217608504789259}
 --- !u!136 &5249169278709733690
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1129,6 +1114,39 @@ CapsuleCollider:
   m_Height: 1.9
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &7968999483387955482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3558820789037399146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a13cee6926fa4a34c9c37efb23bc8549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: fe04dbe0bbb650643b40bb677f0f32d1, type: 2}
+  currentHP: 0
+  skinnedMeshes:
+  - {fileID: 4601217608504789259}
+--- !u!114 &5083655004489176787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3558820789037399146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a198a95e90b69694dadeec60e422b9b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 7301501078680491728}
+  animator: {fileID: 3182261236937898623}
+  playerDetectRange: 10
+  attackRange: 2
+  zombieType: 0
 --- !u!1 &3780100458451256615
 GameObject:
   m_ObjectHideFlags: 0

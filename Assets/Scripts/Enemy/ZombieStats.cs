@@ -34,10 +34,9 @@ public class ZombieStats : MonoBehaviour
     {
         if (isDead) return;
 
-        currentHP -= amount;
-        Debug.Log($"Zombie took {amount} damage. Current HP: {currentHP}");
+        currentHP -= amount;       
+        GameEventManager.Instance.InvokeEnemyHit(this.gameObject);
 
-        
         if (hitEffectCoroutine != null)
         {
             StopCoroutine(hitEffectCoroutine);
@@ -98,8 +97,7 @@ public class ZombieStats : MonoBehaviour
             }
             yield return null;
         }
-
-        //ObjectPoolManager.ReturnObjectToPool(this.gameObject);
+        ObjectPoolManager.ReturnObjectToPool(this.gameObject);
     }
     
 }

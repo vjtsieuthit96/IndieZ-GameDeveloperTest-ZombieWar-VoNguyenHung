@@ -129,9 +129,14 @@ public class GameEventManager : MonoBehaviour
     #region EnemyEvents
     //Enemy Events
     public event Action<GameObject> OnEnemyDie;
+    public event Action<GameObject> OnEnemyHit;
     public void InvokeEnemyDie(GameObject enemy)
     {
         OnEnemyDie?.Invoke(enemy);
+    }
+    public void InvokeEnemyHit(GameObject enemy)
+    {
+        OnEnemyHit?.Invoke(enemy);
     }
     #endregion
 
