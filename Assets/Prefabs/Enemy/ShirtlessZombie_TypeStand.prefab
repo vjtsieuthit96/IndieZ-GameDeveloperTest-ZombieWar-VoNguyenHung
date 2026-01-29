@@ -1938,6 +1938,7 @@ GameObject:
   - component: {fileID: 1957036112426914090}
   - component: {fileID: 3538535362878249218}
   - component: {fileID: 5857647725153455199}
+  - component: {fileID: 8820989365543107689}
   m_Layer: 0
   m_Name: ShirtlessZombie_TypeStand
   m_TagString: Enemy
@@ -2080,6 +2081,26 @@ CapsuleCollider:
   m_Height: 1.9
   m_Direction: 1
   m_Center: {x: 0, y: 0.8, z: 0}
+--- !u!114 &8820989365543107689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5354992946826128773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a198a95e90b69694dadeec60e422b9b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 1957036112426914090}
+  animator: {fileID: 2469492036741976868}
+  playerDetectRange: 10
+  attackRange: 2
+  zombieType: 0
+  zombieData: {fileID: 11400000, guid: 8b2e87dc82f9c914d9d9ed1c3286e7aa, type: 2}
+  playerTarget: {fileID: 0}
+  hitCollider: {fileID: 5857647725153455199}
 --- !u!1 &5379291923765502025
 GameObject:
   m_ObjectHideFlags: 0

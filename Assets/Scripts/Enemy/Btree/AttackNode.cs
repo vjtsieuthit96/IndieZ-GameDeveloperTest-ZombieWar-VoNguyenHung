@@ -24,6 +24,7 @@ public class AttackNode : Node
         float distance = Vector3.Distance(animator.transform.position, player.position);
         if (distance <= attackRange)
         {
+            RotateTowardsTarget(animator.transform, player);
             int attackIndex = Random.Range(1, 4);
             switch (attackIndex)
             {
@@ -38,5 +39,19 @@ public class AttackNode : Node
             state = NodeState.FAILURE;
         }
         return state;
+    }
+
+    private void RotateTowardsTarget(Transform self, Transform target, float rotateSpeed = 10f)
+    {
+        if (target == null) return;
+
+        Vector3 direction = target.position - self.position;
+        direction.y = 0;
+
+        if (direction != Vector3.zero)
+        {
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            self.rotation = Quaternion.Slerp(self.rotation, lookRotation, Time.deltaTime * rotateSpeed);
+        }
     }
 }

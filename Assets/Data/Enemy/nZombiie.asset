@@ -15,3 +15,5 @@ MonoBehaviour:
   maxHP: 20
   damage: 20
   moveSpeed: 3
+  playerDetectRange: 5
+  attackRange: 2

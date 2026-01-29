@@ -12,23 +12,14 @@ public class Sequence : Node
 
     public override NodeState Evaluate()
     {
-        bool isAnyChildRunning = false;
         foreach (var node in children)
         {
-            switch (node.Evaluate())
-            {
-                case NodeState.FAILURE:
-                    state = NodeState.FAILURE;
-                    return state;
-                case NodeState.SUCCESS:
-                    continue;
-                case NodeState.RUNNING:
-                    isAnyChildRunning = true;
-                    break;
-            }
+            var result = node.Evaluate();
+            if (result == NodeState.FAILURE)
+                return state = NodeState.FAILURE;
+            if (result == NodeState.RUNNING)
+                return state = NodeState.RUNNING;          
         }
-        state = isAnyChildRunning ? NodeState.RUNNING : NodeState.SUCCESS;
-        return state;
-
+        return state = NodeState.SUCCESS;
     }
 }
