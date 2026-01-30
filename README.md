@@ -63,8 +63,3 @@ Gun Shooting:
 - Uses CapsuleCast to detect enemies hit by bullets.
 - On explosion, uses SphereOverlap to detect all enemies within blast radius.
 - Provides accurate hit detection along the bullet path, including body/head colliders.  
-
-
-
-
-
