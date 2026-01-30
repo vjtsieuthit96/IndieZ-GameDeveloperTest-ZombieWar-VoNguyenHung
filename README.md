@@ -1,5 +1,6 @@
 **Introduction**
 The player must fight against waves of zombies, manage resources, and survive as long as possible. The game features a save/load system, supportive NPCs, a comprehensive UI, and special events such as helicopter reinforcements.
+
 **Core Gameplay**
 - Player spawn & restore:
 - On fresh start → new game begins.
@@ -10,6 +11,7 @@ The player must fight against waves of zombies, manage resources, and survive as
 - Helicopter reinforcements arrive at minutes 6, 15, 25, 35.
 - Death handling:
 - On player death → save data cleared, leaderboard updated with survival time.
+- 
 **Systems Implemented**
 1. Save/Load System
 - Save player HP, Armor, Ammo, Grenades, Weapon, NPC count, Survival time, Scene index.
