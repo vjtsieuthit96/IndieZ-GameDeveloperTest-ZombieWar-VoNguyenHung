@@ -11,8 +11,13 @@ public class GameUI : MonoBehaviour
 
     private void Start()
     {
-        PopupSpawn(popupPrefab,"In the ashes of humanity, only the resilient endure…\nFight to survive!");
+        if (!PlayerPrefs.HasKey("PlayerHP"))
+        {
+            PopupSpawn(popupPrefab,
+                "In the ashes of humanity, only the resilient endure…\nFight to survive!");
+        }
     }
+
 
     private void OnEnable()
     {
@@ -81,25 +86,31 @@ public class GameUI : MonoBehaviour
         "Every second counts — stay sharp!",
         "The resilient always endure!"
     };
+    private float nextEncouragementTime = 0f;
+    private void Update()
+    {
+        if (tutorialShown) 
+        {
+            if (Time.time >= nextEncouragementTime)
+            {
+                int randIndex = Random.Range(0, encouragementMessages.Count);
+                PopupSpawn(popupPrefab, encouragementMessages[randIndex]);               
+                nextEncouragementTime = Time.time + Random.Range(480f, 780f);
+            }
+        }
+    }
+
     private void HandleMilestone(float milestone)
-    {        
+    {
         if (!tutorialShown)
-        {           
-            PopupSpawn(popupPrefab, "Every 5 minutes the game auto‑saves." +
+        {
+            PopupSpawn(popupPrefab,
+                "Every 5 minutes the game auto‑saves." +
                 "\nBut beware — if you die, all saves are wiped and you must start from the beginning." +
                 "\nReinforcements from the army will arrive after 10 minutes…");
-            tutorialShown = true;
+            tutorialShown = true;            
+            nextEncouragementTime = Time.time + Random.Range(480f, 780f);
         }
-        else
-        {           
-            if (milestone == 15f || milestone == 20f || milestone == 30f || milestone == 35f)
-                return;
-
-            int randIndex = Random.Range(0, encouragementMessages.Count);
-            PopupSpawn(popupPrefab, encouragementMessages[randIndex]);
-        }
-
-
     }
 
     private void HandleHelicopter()

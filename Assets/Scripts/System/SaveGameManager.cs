@@ -60,6 +60,7 @@ public class SaveGameManager : MonoBehaviour
 
         PlayerPrefs.Save();
         Debug.Log("Game Saved!");
+
     }
 
     // ---------------- RESTORE ----------------
@@ -81,15 +82,14 @@ public class SaveGameManager : MonoBehaviour
         ItemDataSO weaponData = ItemDataBase.GetItemByName(currentWeaponName);
         if (weaponData != null)
         {
-            playerController.EquipWeapon(weaponData);
-            Debug.Log(weaponData.itemName + " equipped on restore.");
+            playerController.EquipWeapon(weaponData);           
             playerController.SetCurrentAmmoInMag(ammoInMag);
         }
         
         int spawnedCount = PlayerPrefs.GetInt("SpawnedNPCCount", 0);
         npcManager.SpawnNPCs(spawnedCount);
 
-        survivalTimer.SetElapsedTime(survivalTime, new List<int>());
+        survivalTimer.SetElapsedTime(survivalTime, new List<int>());     
         Debug.Log("Player restored from save!");
     }
 

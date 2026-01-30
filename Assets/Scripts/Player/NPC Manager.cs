@@ -29,8 +29,8 @@ public class NPCManager : MonoBehaviour
 
         Instantiate(npcPrefab, spawnPoint.position, spawnPoint.rotation);
 
-        spawnedCount++;
-        Debug.Log($"Spawned NPC #{spawnedCount} at {spawnPoint.name}");
+        spawnedCount++;      
+        Debug.Log("NPC Spawned. Total NPCs: " + spawnedCount);
     }
 
     public void SpawnNPCs(int count)

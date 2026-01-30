@@ -1,11 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 
 public class SurvivalTimer : MonoBehaviour
 {
     [SerializeField] private float elapsedTime;
     private float nextMilestone = 300f;
-  
+
     private HashSet<int> helicopterTriggered = new HashSet<int>();
 
     public float ElapsedTime => elapsedTime;
@@ -13,7 +13,7 @@ public class SurvivalTimer : MonoBehaviour
     public void SetElapsedTime(float time, List<int> triggered)
     {
         elapsedTime = time;
-        nextMilestone = ((int)(elapsedTime / 300f) + 1) * 300f;      
+        nextMilestone = ((int)(elapsedTime / 300f) + 1) * 300f;
         helicopterTriggered = new HashSet<int>(triggered);
     }
 
@@ -21,15 +21,15 @@ public class SurvivalTimer : MonoBehaviour
     {
         elapsedTime += Time.deltaTime;
         GameEventManager.Instance.InvokeSurvivalTimeChanged(elapsedTime);
-       
+
         if (elapsedTime >= nextMilestone)
         {
             GameEventManager.Instance.InvokeSurvivalMilestone(nextMilestone);
             nextMilestone += 300f;
         }
-       
+      
         int minutes = Mathf.FloorToInt(elapsedTime / 60f);
-        if ((minutes == 15 || minutes == 20 || minutes == 30 || minutes == 35)
+        if ((minutes == 6 || minutes == 15 || minutes == 25 || minutes == 35)
             && !helicopterTriggered.Contains(minutes))
         {
             helicopterTriggered.Add(minutes);
@@ -50,11 +50,5 @@ public class SurvivalTimer : MonoBehaviour
     private void HandlePlayerDied()
     {
         SurvivalLeaderboard.Instance.AddRecord(elapsedTime);
-    }
-
-  
-    public List<int> GetTriggeredHelicopters()
-    {
-        return new List<int>(helicopterTriggered);
     }
 }

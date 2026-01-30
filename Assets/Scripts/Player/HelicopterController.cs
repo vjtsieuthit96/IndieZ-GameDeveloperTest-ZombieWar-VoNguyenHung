@@ -73,8 +73,7 @@ public class HelicopterController : MonoBehaviour
                 isTakingOff = false;
                 isLanding = false;
                 hasArrived = true;
-                GameEventManager.Instance.InvokeHelicopterArrived();
-                Debug.Log("Helicopter Arrived Event Fired!");
+                GameEventManager.Instance.InvokeHelicopterArrived();              
             }
         }
     }
