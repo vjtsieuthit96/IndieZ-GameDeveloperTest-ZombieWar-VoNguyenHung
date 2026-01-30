@@ -57,9 +57,9 @@ NPCHelper:
 - Events handled via GameEventManager (OnMoveJoystick, OnMoveRelease).
 - Button events for shooting, reloading, and grenade throwing.
 - Smooth top‑down control using Cinemachine camera follow & Shake Camera.
-10. UI System: HP/Armor bars, ammo/grenade counters, weapon icon, popups.
-11.Weapon System
-Gun Shooting:
+10. UI System
+- HP/Armor bars, ammo/grenade counters, weapon icon, popups.
+11.  Weapon System
 - Uses CapsuleCast to detect enemies hit by bullets.
 - On explosion, uses SphereOverlap to detect all enemies within blast radius.
 - Provides accurate hit detection along the bullet path, including body/head colliders.  
