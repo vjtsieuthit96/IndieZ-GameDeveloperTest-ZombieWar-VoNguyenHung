@@ -48,6 +48,7 @@ public class GameEventManager : MonoBehaviour
     public event Action OnShootHold;
     public event Action OnShootRelease;
     public event Action OnReloadClicked;
+    public event Action OnGrenadeClicked;
 
     public void TriggerShootHold()
     {
@@ -63,6 +64,10 @@ public class GameEventManager : MonoBehaviour
     {
         OnReloadClicked?.Invoke();
     }
+    public void TriggerGrenadeClicked()
+    {
+        OnGrenadeClicked?.Invoke();
+    }   
     
     #endregion
     // Player Stats Events
@@ -104,6 +109,11 @@ public class GameEventManager : MonoBehaviour
     public event Action OnReloadStarted;
     public event Action OnReloadFinished;
     public event Action<int> OnReserveAmmoChanged;
+    public event Action<int> OnGrenadeChanged;
+    public void InvokeGrenadeChanged(int newValue)
+    {
+        OnGrenadeChanged?.Invoke(newValue);
+    }
     public void InvokeReserveAmmoChanged(int reserveAmmo)
     {
         OnReserveAmmoChanged?.Invoke(reserveAmmo);
@@ -156,6 +166,20 @@ public class GameEventManager : MonoBehaviour
     {
         OnEnemyHit?.Invoke(enemy);
     }
+    #endregion
+
+    #region NPC Events    
+    public event Action OnHelicopterTakeOff;
+    public event Action OnHelicopterArrived;   
+    public void InvokeHelicopterArrived()
+    {
+        OnHelicopterArrived?.Invoke();
+    }
+    public void InvokeHelicopterTakeOff()
+    {
+        OnHelicopterTakeOff?.Invoke();
+    }
+
     #endregion
 
 }

@@ -8,9 +8,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
 
     [Header("Audio Mixer")]
-    [SerializeField] private AudioMixer audioMixer;
-    [SerializeField] private Slider musicSlider;
-    [SerializeField] private Slider sfxSlider;
+    [SerializeField] private AudioMixer audioMixer;   
 
     [Header("Music Settings")]
     [SerializeField] private AudioSource musicSource;
@@ -36,11 +34,7 @@ public class AudioManager : MonoBehaviour
             InitSFXPool();
             
             float musicVol = PlayerPrefs.GetFloat("MusicVolume", 1f);
-            float sfxVol = PlayerPrefs.GetFloat("SFXVolume", 1f);
-
-            musicSlider.SetValueWithoutNotify(musicVol);
-            sfxSlider.SetValueWithoutNotify(sfxVol);
-
+            float sfxVol = PlayerPrefs.GetFloat("SFXVolume", 1f);          
             SetMusicVolume(musicVol);
             SetSFXVolume(sfxVol);
         }

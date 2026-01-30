@@ -49,7 +49,7 @@ public class PlayerStats : MonoBehaviour
     {        
         if (!isDead && currentHP <= 0)
         {
-            Die();
+            Die();  
         }
        
         if (!armorBroken && currentArmor <= 0)

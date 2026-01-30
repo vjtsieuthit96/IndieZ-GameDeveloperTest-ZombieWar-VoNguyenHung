@@ -9,6 +9,7 @@ public class UIStatsWeaponDisplay : MonoBehaviour
     [SerializeField] private Image weaponIcon;
     [SerializeField] private TMP_Text magText;    
     [SerializeField] private TMP_Text reserveText;
+    [SerializeField] private TMP_Text grenadeText;
 
     [Header("Stats")]
     [SerializeField] private Slider hpSlider;
@@ -28,6 +29,7 @@ public class UIStatsWeaponDisplay : MonoBehaviour
         GameEventManager.Instance.OnPlayerStatsChanged += UpdateStatsUI;
         GameEventManager.Instance.OnAmmoChanged += UpdateAmmoUI;
         GameEventManager.Instance.OnReserveAmmoChanged += UpdateReserveOnlyUI;
+        GameEventManager.Instance.OnGrenadeChanged += UpdateGrenadeUI;
     }
 
     private void OnDisable()
@@ -36,6 +38,7 @@ public class UIStatsWeaponDisplay : MonoBehaviour
         GameEventManager.Instance.OnPlayerStatsChanged -= UpdateStatsUI;
         GameEventManager.Instance.OnAmmoChanged -= UpdateAmmoUI;
         GameEventManager.Instance.OnReserveAmmoChanged -= UpdateReserveOnlyUI;
+        GameEventManager.Instance.OnGrenadeChanged -= UpdateGrenadeUI;
     }
 
 
@@ -55,6 +58,13 @@ public class UIStatsWeaponDisplay : MonoBehaviour
     private void UpdateReserveOnlyUI(int reserve)
     {
         reserveText.text = $" {reserve}";
+    }
+    private void UpdateGrenadeUI(int grenadeCount)
+    {
+        if (grenadeText != null)
+        {
+            grenadeText.text = $"{grenadeCount}";
+        }
     }
 
     private void UpdateStatsUI(float hp, float armor)
