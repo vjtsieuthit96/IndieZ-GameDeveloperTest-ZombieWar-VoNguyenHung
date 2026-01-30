@@ -10,8 +10,7 @@ The player must fight against waves of zombies, manage resources, and survive as
 - Auto-save every 5 minutes.
 - Helicopter reinforcements arrive at minutes 6, 15, 25, 35.
 - Death handling:
-- On player death → save data cleared, leaderboard updated with survival time.
-- 
+- On player death → save data cleared, leaderboard updated with survival time.  
 **Systems Implemented**
 1. Save/Load System
 - Save player HP, Armor, Ammo, Grenades, Weapon, NPC count, Survival time, Scene index.
@@ -57,17 +56,14 @@ NPCHelper:
 - Virtual joystick implemented for player movement.
 - Events handled via GameEventManager (OnMoveJoystick, OnMoveRelease).
 - Button events for shooting, reloading, and grenade throwing.
-- Smooth top‑down control using Cinemachine camera follow.
+- Smooth top‑down control using Cinemachine camera follow & Shake Camera.
 10. UI System: HP/Armor bars, ammo/grenade counters, weapon icon, popups
 11.Weapon System
 Gun Shooting:
 - Uses CapsuleCast to detect enemies hit by bullets.
-- Provides accurate hit detection along the bullet path, including body/head colliders.
-- Triggers damage, hit effects.
-Grenade Throwing:
-- Physics‑based trajectory with Rigidbody.
 - On explosion, uses SphereOverlap to detect all enemies within blast radius.
-- Applies area damage, plays explosion effects, and triggers Shader Graph dissolve for enemies killed.
+- Provides accurate hit detection along the bullet path, including body/head colliders.  
+
 
 
 
