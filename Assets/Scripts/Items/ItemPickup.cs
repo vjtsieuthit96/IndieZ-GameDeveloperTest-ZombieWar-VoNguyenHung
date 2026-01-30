@@ -16,9 +16,9 @@ public class ItemPickup : MonoBehaviour
     {
         if (other.CompareTag("Player") && itemData != null)
         {
-            PlayerController playerController = other.GetComponentInParent<PlayerController>();
-            PlayerStats playerStats = other.GetComponentInParent<PlayerStats>();
-            Inventory playerInventory = other.GetComponentInParent<Inventory>();
+            PlayerController playerController = other.GetComponent<PlayerController>();
+            PlayerStats playerStats = other.GetComponent<PlayerStats>();
+            Inventory playerInventory = other.GetComponent<Inventory>();
 
             switch (itemData.itemType)
             {
@@ -52,6 +52,16 @@ public class ItemPickup : MonoBehaviour
                     playerController.PlayAudio(0);
                     break;
 
+                case ItemType.Grenade:
+                    if (playerInventory != null)
+                    {
+                        playerInventory.AddGrenade(itemData.amountGrenade);
+                    }
+                    if (playerController != null)
+                    {
+                        playerController.PlayAudio(0);
+                    }
+                    break;
             }
             Invoke(nameof(Respawn), respawnDelay);
             gameObject.SetActive(false);

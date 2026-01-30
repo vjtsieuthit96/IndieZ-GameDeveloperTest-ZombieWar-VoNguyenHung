@@ -33,32 +33,32 @@ public class Inventory : MonoBehaviour
         GameEventManager.Instance.InvokeReserveAmmoChanged(reserveAmmo);
     }
 
-    //// ----- Grenade -----
-    //public void AddGrenade(int amount)
-    //{
-    //    reserveGrenade = Mathf.Min(reserveGrenade + amount, maxGrenade);
-    //    GameEventManager.Instance.InvokeGrenadeChanged(reserveGrenade);
-    //}
+    // ----- Grenade -----
+    public void AddGrenade(int amount)
+    {
+        reserveGrenade = Mathf.Min(reserveGrenade + amount, maxGrenade);
+        GameEventManager.Instance.InvokeGrenadeChanged(reserveGrenade);
+    }
 
     public int GetGrenade()
     {
         return reserveGrenade;
     }
 
-    //public bool UseGrenade()
-    //{
-    //    if (reserveGrenade > 0)
-    //    {
-    //        reserveGrenade--;
-    //        GameEventManager.Instance.InvokeGrenadeChanged(reserveGrenade);
-    //        return true;
-    //    }
-    //    return false;
-    //}
+    public bool UseGrenade()
+    {
+        if (reserveGrenade > 0)
+        {
+            reserveGrenade--;
+            GameEventManager.Instance.InvokeGrenadeChanged(reserveGrenade);
+            return true;
+        }
+        return false;
+    }
 
     public void SetGrenade(int amount)
     {
         reserveGrenade = Mathf.Min(amount, maxGrenade);
-        //GameEventManager.Instance.InvokeGrenadeChanged(reserveGrenade);
+        GameEventManager.Instance.InvokeGrenadeChanged(reserveGrenade);
     }
 }

@@ -10,15 +10,35 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Inventory Inventory;
     [SerializeField] private AudioSource AudioSource;
     [SerializeField] private AudioClip[] pickUpClip;
+    [SerializeField] private AudioClip grenadeThrowClip;
+    [SerializeField] private Transform grenadeSpawnPoint;
+    [SerializeField] private GameObject grenadePrefab;
+    [SerializeField] private float throwForce = 15f;
+    [SerializeField] private Transform myTarget;
 
     private int shootHash = Animator.StringToHash("Shoot");
     private int reloadHash = Animator.StringToHash("Reload");
     private int isReloadingHash = Animator.StringToHash("isReloading");
+    private int grenadeHash = Animator.StringToHash("Grenade");
     private GameObject currentWeapon;
     private bool isReloading = false;
     private bool restoredFromSave = false;
+    private bool isThrowingGrenade = false;
+
 
     private ItemDataSO equippedWeapon;
+    void Start()
+    {
+        if (defaultWeapon != null && currentWeapon == null && !restoredFromSave)
+        {
+            currentWeapon = ObjectPoolManager.SpawnObject(defaultWeapon.weaponPrefab, weaponSocket, Quaternion.identity);
+            currentWeapon.GetComponent<WeaponManager>().InitWeapon(defaultWeapon, Inventory);
+            equippedWeapon = defaultWeapon;
+            GameEventManager.Instance.InvokeWeaponChanged(defaultWeapon);
+        }
+        GameEventManager.Instance.InvokeGrenadeChanged(Inventory.GetGrenade());
+
+    }
     void OnEnable()
     {
         GameEventManager.Instance.OnArmorBroken += DisableArmor;
@@ -27,17 +47,8 @@ public class PlayerController : MonoBehaviour
         GameEventManager.Instance.OnShootRelease += HandleShootRelease;
         GameEventManager.Instance.OnReloadStarted += HandleReloadStarted;
         GameEventManager.Instance.OnReloadFinished += HandleReloadFinished;
-    }
+        GameEventManager.Instance.OnGrenadeClicked += HandleGrenadeClicked;
 
-    void Start()
-    {
-        if (defaultWeapon != null && currentWeapon == null && !restoredFromSave)
-        {
-            currentWeapon = ObjectPoolManager.SpawnObject(defaultWeapon.weaponPrefab, weaponSocket, Quaternion.identity);
-            currentWeapon.GetComponent<WeaponManager>().InitWeapon(defaultWeapon,Inventory);  
-            equippedWeapon = defaultWeapon;
-            GameEventManager.Instance.InvokeWeaponChanged(defaultWeapon);
-        }
     }
 
     void OnDisable()
@@ -48,6 +59,8 @@ public class PlayerController : MonoBehaviour
         GameEventManager.Instance.OnShootRelease -= HandleShootRelease;
         GameEventManager.Instance.OnReloadStarted -= HandleReloadStarted;
         GameEventManager.Instance.OnReloadFinished -= HandleReloadFinished;
+        GameEventManager.Instance.OnGrenadeClicked -= HandleGrenadeClicked;
+
     }
 
     // ----- Armor -----
@@ -105,7 +118,44 @@ public class PlayerController : MonoBehaviour
         isReloading = false;
         animator.SetBool(isReloadingHash, false);
     }
+    // ----- Grenade -----
+    private void HandleGrenadeClicked()
+    {
+        if (Inventory != null && Inventory.UseGrenade() && !isReloading && !isThrowingGrenade)
+        {
+            isThrowingGrenade = true;
+            animator.SetTrigger(grenadeHash);
 
+            GameObject grenade = ObjectPoolManager.SpawnObject(
+                grenadePrefab,
+                grenadeSpawnPoint.position,
+                grenadeSpawnPoint.rotation
+            );
+
+            Rigidbody rb = grenade.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                Vector3 targetPoint = myTarget.position;
+                Vector3 dir = (targetPoint - grenadeSpawnPoint.position);
+                dir.y = 0;
+                float angle = 45f;
+                Vector3 throwDir = Quaternion.AngleAxis(angle, grenadeSpawnPoint.right) * dir.normalized;
+                rb.linearVelocity = throwDir * throwForce;
+            }
+
+            AudioSource.PlayOneShot(grenadeThrowClip);
+        }       
+    }
+
+    public void FinishGrenadeThrow()
+    {
+        isThrowingGrenade = false;
+    }
+
+
+
+    #region Properties
+    // ----- Properties -----
     public string GetCurrentWeaponName()
     {
         if (currentWeapon != null)
@@ -135,5 +185,6 @@ public class PlayerController : MonoBehaviour
     {       
         AudioSource.PlayOneShot(pickUpClip[index]);
     }
+    #endregion 
 
 }

@@ -5,17 +5,33 @@ using System.Collections;
 public class SurvivalTimerUI : MonoBehaviour
 {
     [SerializeField] private TMP_Text timerText;
+    [SerializeField] private TMP_Text leaderboardText;
+    [SerializeField] private GameObject leadboardPanel;
+    private bool isVisible = false;
+
+    private void Start()
+    {
+        RefreshLeaderboard();
+    }
 
     void OnEnable()
     {
         GameEventManager.Instance.OnSurvivalTimeChanged += UpdateTimerUI;
         GameEventManager.Instance.OnSurvivalMilestone += PlayMilestoneAnim;
+        GameEventManager.Instance.OnPlayerDied += ShowLeaderboard;
     }
 
     void OnDisable()
     {
         GameEventManager.Instance.OnSurvivalTimeChanged -= UpdateTimerUI;
         GameEventManager.Instance.OnSurvivalMilestone -= PlayMilestoneAnim;
+        GameEventManager.Instance.OnPlayerDied -= ShowLeaderboard;
+    }
+    public void TogglePanel()
+    {
+        RefreshLeaderboard();
+        isVisible = !isVisible;
+        leadboardPanel.SetActive(isVisible);      
     }
 
     private void UpdateTimerUI(float time)
@@ -51,4 +67,36 @@ public class SurvivalTimerUI : MonoBehaviour
             yield return null;
         }
     }
+    private void ShowLeaderboard()
+    {       
+        var topRecords = SurvivalLeaderboard.Instance.GetTopRecords();
+        leaderboardText.text = "";
+
+        for (int i = 0; i < topRecords.Count; i++)
+        {
+            float time = topRecords[i]; 
+            int minutes = Mathf.FloorToInt(time / 60f);
+            int seconds = Mathf.FloorToInt(time % 60f);
+            leaderboardText.text += $"{i + 1}. {minutes:00}:{seconds:00}\n";
+        }
+        if (!isVisible)
+        {
+            isVisible = true;
+            leadboardPanel.SetActive(true);
+        }
+    }
+    public void RefreshLeaderboard()
+    {
+        var topRecords = SurvivalLeaderboard.Instance.GetTopRecords();
+        leaderboardText.text = "";
+
+        for (int i = 0; i < topRecords.Count; i++)
+        {
+            float time = topRecords[i];
+            int minutes = Mathf.FloorToInt(time / 60f);
+            int seconds = Mathf.FloorToInt(time % 60f);
+            leaderboardText.text += $"{i + 1}. {minutes:00}:{seconds:00}\n";
+        }
+    }
+
 }

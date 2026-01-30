@@ -30,30 +30,31 @@ public class NPCHelper : MonoBehaviour
     void Update()
     {
         Collider[] hits = Physics.OverlapSphere(transform.position, range, zombieLayer);
-        if (hits.Length > 0 && Time.time >= nextFireTime)
+        Transform target = GetVisibleZombie(hits);
+        
+        if (target != null)
         {
-            Transform target = GetVisibleZombie(hits);
+            RotateTowards(target);
+        }
+        
+        if (target != null && hits.Length > 0 && Time.time >= nextFireTime)
+        {
             if (shotsFired >= 30 || isReloading)
                 return;
-            if (target != null)
+
+            Shoot(target);
+            animator.SetTrigger(shootHash);
+            shootAudioSource.PlayOneShot(shootClip);
+            if (!muzzleFlash.isPlaying)
             {
-                RotateTowards(target);
-                Shoot(target);
-                animator.SetTrigger(shootHash);
-                shootAudioSource.PlayOneShot(shootClip);
-                if (!muzzleFlash.isPlaying)
-                {
-                    muzzleFlash.Play();
-                }
-                nextFireTime = Time.time + fireRate;
-                shotsFired++;
-                Debug.Log("Shots Fired: " + shotsFired);
-                {
-                    if(shotsFired >= 30)
-                    {
-                        StartCoroutine(ReloadDelay());
-                    }
-                }
+                muzzleFlash.Play();
+            }
+            nextFireTime = Time.time + fireRate;
+            shotsFired++;           
+
+            if (shotsFired >= 30)
+            {
+                StartCoroutine(ReloadDelay());
             }
         }
     }

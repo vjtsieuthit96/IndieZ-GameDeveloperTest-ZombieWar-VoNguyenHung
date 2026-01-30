@@ -2031,7 +2031,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6991695726528437134}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2039,7 +2039,7 @@ Transform:
   - {fileID: 2264376966485299562}
   - {fileID: 1101921501478759056}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6331446063251334584
 Animator:
   serializedVersion: 7
@@ -2087,6 +2087,7 @@ MonoBehaviour:
     m_Bits: 1
   rotateSpeed: 5
   shootAudioSource: {fileID: 6583746370467071480}
+  shootClip: {fileID: 8300000, guid: 8b76cff51a7d7e844b0adf5da4371ec6, type: 3}
   muzzleFlash: {fileID: 7317606564824601195}
   animator: {fileID: 6331446063251334584}
   impactEnemy: {fileID: 5427926128662192595, guid: 2459373aa2d0bde45a4a777a0e9cc754, type: 3}
@@ -2104,7 +2105,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243485103152924164, guid: a9e5d729576b0a5478cec30207263369, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 8b76cff51a7d7e844b0adf5da4371ec6, type: 3}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
