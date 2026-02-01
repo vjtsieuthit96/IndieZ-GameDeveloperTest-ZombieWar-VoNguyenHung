@@ -9,6 +9,17 @@ public class PopupUI : MonoBehaviour
     public void SetMessage(string message)
     {
         StopAllCoroutines();
+      
+        messageText.enableAutoSizing = true;
+        messageText.text = message;
+        messageText.ForceMeshUpdate();
+        
+        float fixedSize = messageText.fontSize;
+       
+        messageText.text = "";
+        messageText.enableAutoSizing = false;
+        messageText.fontSize = fixedSize;
+
         StartCoroutine(TypeText(message));
     }
 
