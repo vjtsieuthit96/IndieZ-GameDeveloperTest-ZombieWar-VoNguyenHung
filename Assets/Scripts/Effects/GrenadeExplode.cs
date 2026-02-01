@@ -30,40 +30,40 @@ public class GrenadeExplode : MonoBehaviour
         isExploded = false;       
     }
     private void Explode()
-    {
-        Debug.Log("Explode called!");
-
-        ObjectPoolManager.SpawnObject(explosionEffectPrefab, transform.position, Quaternion.identity);       
+    {        
+        ObjectPoolManager.SpawnObject(explosionEffectPrefab, transform.position, Quaternion.identity);
         Collider[] hits = Physics.OverlapSphere(transform.position, explosionRadius);
+
         foreach (Collider hit in hits)
-        {
+        {            
+            float distance = Vector3.Distance(transform.position, hit.transform.position);
+            float t = Mathf.Clamp01(distance / explosionRadius);
+            float damage = Mathf.Lerp(maxDamage, minDamage, t);
+
             if (hit.CompareTag("Enemy"))
             {
                 ZombieStats enemy = hit.GetComponent<ZombieStats>();
                 if (enemy != null)
                 {
-                    float distance = Vector3.Distance(transform.position, hit.transform.position);
-                    float t = Mathf.Clamp01(distance / explosionRadius);
-                    float damage = Mathf.Lerp(maxDamage, minDamage, t);
                     enemy.TakeDamage(damage);
                 }
             }
-
-            if (hit.CompareTag("Player"))
+            else if (hit.CompareTag("Player"))
             {
                 if (CameraShake.Instance != null)
                 {
-                    float distance = Vector3.Distance(transform.position, hit.transform.position);
-                    float tShake = Mathf.Clamp01(distance / explosionRadius);
-
-                    float shakeIntensity = Mathf.Lerp(maxShakeIntensity, minShakeIntensity, tShake);
-                    float shakeFrequency = Mathf.Lerp(5f, 2f, tShake);
-
-                    CameraShake.Instance.Shake(shakeIntensity, shakeFrequency, 0.3f);                    
-                }               
+                    float shakeIntensity = Mathf.Lerp(maxShakeIntensity, minShakeIntensity, t);
+                    float shakeFrequency = Mathf.Lerp(5f, 2f, t);
+                    CameraShake.Instance.Shake(shakeIntensity, shakeFrequency, 0.3f);
+                }
+                PlayerStats player = hit.GetComponent<PlayerStats>();
+                if (player != null)
+                {
+                    player.SelfDamage(damage);
+                }
             }
-        }      
+        }
         ObjectPoolManager.ReturnObjectToPool(gameObject);
-    }    
+    }
 
 }

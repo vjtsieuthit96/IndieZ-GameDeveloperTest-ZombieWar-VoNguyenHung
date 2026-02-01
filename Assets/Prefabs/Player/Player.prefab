@@ -2501,7 +2501,7 @@ MonoBehaviour:
   maxAmmo: 300
   reserveAmmo: 60
   maxGrenade: 10
-  reserveGrenade: 2
+  reserveGrenade: 0
 --- !u!82 &1969989857840541371
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3763,8 +3763,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   PivotOffset: {x: 0, y: 0, z: 0}
-  AmplitudeGain: 1
-  FrequencyGain: 1
+  AmplitudeGain: 0
+  FrequencyGain: 0
   m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &6436549416412215678
 MonoBehaviour:
