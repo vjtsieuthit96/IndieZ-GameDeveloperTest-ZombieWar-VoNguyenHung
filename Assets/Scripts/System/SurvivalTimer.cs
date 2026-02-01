@@ -7,6 +7,7 @@ public class SurvivalTimer : MonoBehaviour
     private float nextMilestone = 300f;
 
     private HashSet<int> helicopterTriggered = new HashSet<int>();
+    private bool isRunning = true;
 
     public float ElapsedTime => elapsedTime;
 
@@ -19,6 +20,8 @@ public class SurvivalTimer : MonoBehaviour
 
     void Update()
     {
+        if (!isRunning) return; 
+
         elapsedTime += Time.deltaTime;
         GameEventManager.Instance.InvokeSurvivalTimeChanged(elapsedTime);
 
@@ -27,7 +30,7 @@ public class SurvivalTimer : MonoBehaviour
             GameEventManager.Instance.InvokeSurvivalMilestone(nextMilestone);
             nextMilestone += 300f;
         }
-      
+
         int minutes = Mathf.FloorToInt(elapsedTime / 60f);
         if ((minutes == 6 || minutes == 15 || minutes == 25 || minutes == 35)
             && !helicopterTriggered.Contains(minutes))
@@ -49,6 +52,7 @@ public class SurvivalTimer : MonoBehaviour
 
     private void HandlePlayerDied()
     {
+        isRunning = false; 
         SurvivalLeaderboard.Instance.AddRecord(elapsedTime);
     }
 }

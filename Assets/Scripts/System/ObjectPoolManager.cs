@@ -39,8 +39,7 @@ public class ObjectPoolManager : MonoBehaviour
     // empty GameObjects for different pool types
     private static GameObject _particleSystemsEmpty;
     private static GameObject _gameObjectsEmpty;
-    private static GameObject _soundFXEmpty;
-
+    private static GameObject _soundFXEmpty;   
     private static Dictionary<GameObject, ObjectPool<GameObject>> _objectPools;
     private static Dictionary<GameObject, GameObject> _cloneToPrefabMap;
 
@@ -61,6 +60,7 @@ public class ObjectPoolManager : MonoBehaviour
         _cloneToPrefabMap = new Dictionary<GameObject, GameObject>();
 
         SetupEmpties();
+
     }
 
     private void SetupEmpties()
@@ -139,13 +139,12 @@ public class ObjectPoolManager : MonoBehaviour
     }
     private static void OnGetObject(GameObject obj)
     {
-        // optional logic
+       
     }
 
     private static void OnReleaseObject(GameObject obj)
     {
-        obj.SetActive(false);
-
+        obj.SetActive(false);        
     }
 
     private static void OnDestroyObject(GameObject obj)
@@ -294,5 +293,5 @@ public class ObjectPoolManager : MonoBehaviour
         {
             Debug.LogWarning("No pool found for the returned object: " + obj.name);
         }
-    }
+    }  
 }

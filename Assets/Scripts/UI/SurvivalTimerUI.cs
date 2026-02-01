@@ -68,17 +68,19 @@ public class SurvivalTimerUI : MonoBehaviour
         }
     }
     private void ShowLeaderboard()
-    {       
+    {
         var topRecords = SurvivalLeaderboard.Instance.GetTopRecords();
         leaderboardText.text = "";
 
-        for (int i = 0; i < topRecords.Count; i++)
+        int count = Mathf.Min(topRecords.Count, 5);
+        for (int i = 0; i < count; i++)
         {
-            float time = topRecords[i]; 
+            float time = topRecords[i];
             int minutes = Mathf.FloorToInt(time / 60f);
             int seconds = Mathf.FloorToInt(time % 60f);
             leaderboardText.text += $"{i + 1}. {minutes:00}:{seconds:00}\n";
         }
+
         if (!isVisible)
         {
             isVisible = true;
@@ -90,7 +92,8 @@ public class SurvivalTimerUI : MonoBehaviour
         var topRecords = SurvivalLeaderboard.Instance.GetTopRecords();
         leaderboardText.text = "";
 
-        for (int i = 0; i < topRecords.Count; i++)
+        int count = Mathf.Min(topRecords.Count, 5); 
+        for (int i = 0; i < count; i++)
         {
             float time = topRecords[i];
             int minutes = Mathf.FloorToInt(time / 60f);
