@@ -32978,10 +32978,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2479301783890603525, guid: bb9f7fb7c979fed429f750c0af507450, type: 3}
-      propertyPath: reserveGrenade
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5618685321020374203, guid: bb9f7fb7c979fed429f750c0af507450, type: 3}
       propertyPath: m_Name
       value: Player
@@ -33024,14 +33020,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7810497884514810672, guid: bb9f7fb7c979fed429f750c0af507450, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9208335104867717683, guid: bb9f7fb7c979fed429f750c0af507450, type: 3}
-      propertyPath: AmplitudeGain
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9208335104867717683, guid: bb9f7fb7c979fed429f750c0af507450, type: 3}
-      propertyPath: FrequencyGain
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

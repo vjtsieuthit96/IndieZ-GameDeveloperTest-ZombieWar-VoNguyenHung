@@ -53,11 +53,14 @@ public class GrenadeExplode : MonoBehaviour
             {
                 if (CameraShake.Instance != null)
                 {
+                    
                     float distance = Vector3.Distance(transform.position, hit.transform.position);
-                    float tShake = Mathf.Clamp01(distance / explosionRadius);
-
-                    float shakeIntensity = Mathf.Lerp(maxShakeIntensity, minShakeIntensity, tShake);
-                    float shakeFrequency = Mathf.Lerp(5f, 2f, tShake);
+                    float t = Mathf.Clamp01(distance / explosionRadius);
+                    float damage = Mathf.Lerp(maxDamage, minDamage, t);
+                    PlayerStats player = hit.GetComponent<PlayerStats>();
+                    player.SelfDamage(damage);
+                    float shakeIntensity = Mathf.Lerp(maxShakeIntensity, minShakeIntensity, t);
+                    float shakeFrequency = Mathf.Lerp(5f, 2f, t);
 
                     CameraShake.Instance.Shake(shakeIntensity, shakeFrequency, 0.3f);                    
                 }               

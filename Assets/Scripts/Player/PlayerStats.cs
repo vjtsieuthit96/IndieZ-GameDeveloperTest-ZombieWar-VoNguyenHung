@@ -90,6 +90,36 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    public void SelfDamage(float amount)
+    {
+        if (currentArmor > 0)
+        {
+            currentArmor -= amount;
+            if (currentArmor < 0)
+            {
+                currentHP += currentArmor;
+                currentArmor = 0;
+
+                if (!armorBroken)
+                {
+                    armorBroken = true;
+                    GameEventManager.Instance.InvokeArmorBroken();
+                }
+            }
+        }
+        else
+        {
+            currentHP -= amount;
+        }
+       
+        NotifyStatsChanged();
+
+        if (!isDead && currentHP <= 0)
+        {
+            Die();
+        }
+    }
+
     public void Heal(ItemDataSO healitem)
     {
         currentHP = Mathf.Min(currentHP + healitem.healAmount, playerData.maxHP);
