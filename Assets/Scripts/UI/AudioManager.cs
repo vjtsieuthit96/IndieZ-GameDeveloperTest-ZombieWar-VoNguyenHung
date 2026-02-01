@@ -8,7 +8,9 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
 
     [Header("Audio Mixer")]
-    [SerializeField] private AudioMixer audioMixer;   
+    [SerializeField] private AudioMixer audioMixer;
+    [SerializeField] private AudioMixerGroup musicMixerGroup;
+    [SerializeField] private AudioMixerGroup sfxMixerGroup;
 
     [Header("Music Settings")]
     [SerializeField] private AudioSource musicSource;
@@ -91,7 +93,7 @@ public class AudioManager : MonoBehaviour
     // ---------------- SFX ----------------
     private void InitSFXPool()
     {
-        sfxSources = new AudioSource[poolSize];
+        sfxSources = new AudioSource[poolSize];        
         for (int i = 0; i < poolSize; i++)
         {
             GameObject go = new GameObject("SFXSource_" + i);
@@ -100,6 +102,7 @@ public class AudioManager : MonoBehaviour
             src.spatialBlend = 1f;
             src.minDistance = 1f;
             src.maxDistance = sfxMaxDistance;
+            src.outputAudioMixerGroup = sfxMixerGroup;
             sfxSources[i] = src;
         }
     }
