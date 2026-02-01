@@ -67,12 +67,17 @@ public class ZombieAI : MonoBehaviour
         agent.speed = zombieData.moveSpeed;
         GameEventManager.Instance.OnEnemyDie += HandleEnemyDie;
         GameEventManager.Instance.OnEnemyHit += HandleEnemyHit;       
+        GameEventManager.Instance.OnRestartClicked += HandleRestart;
     }
     private void OnDisable()
     {
         GameEventManager.Instance.OnEnemyDie -= HandleEnemyDie;
         GameEventManager.Instance.OnEnemyHit -= HandleEnemyHit;
-
+        GameEventManager.Instance.OnRestartClicked -= HandleRestart;
+    }
+    private void HandleRestart()
+    {        
+        ObjectPoolManager.ReturnObjectToPool(this.gameObject);
     }
     private void HandleEnemyDie(GameObject enemy)
     {        

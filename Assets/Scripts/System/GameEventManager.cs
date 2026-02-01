@@ -16,7 +16,7 @@ public class GameEventManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
+    } 
     // UI Events
     #region UI     
     // Sound
@@ -49,6 +49,11 @@ public class GameEventManager : MonoBehaviour
     public event Action OnShootRelease;
     public event Action OnReloadClicked;
     public event Action OnGrenadeClicked;
+    public event Action OnRestartClicked;
+    public void TriggerRestartClicked()
+    {
+        OnRestartClicked?.Invoke();
+    }
 
     public void TriggerShootHold()
     {

@@ -7,7 +7,7 @@ public class GameUI : MonoBehaviour
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject effectPanel;
     [SerializeField] private GameObject popupPanel;    
-    [SerializeField] private GameObject popupPrefab;
+    [SerializeField] private GameObject popupPrefab;    
 
     private void Start()
     {
@@ -20,17 +20,17 @@ public class GameUI : MonoBehaviour
 
 
     private void OnEnable()
-    {
+    {            
         GameEventManager.Instance.OnPlayerDied += ShowGameOver;
         GameEventManager.Instance.OnSurvivalMilestone += HandleMilestone;
-        GameEventManager.Instance.OnHelicopterTakeOff += HandleHelicopter;
+        GameEventManager.Instance.OnHelicopterTakeOff += HandleHelicopter;      
     }
 
     private void OnDisable()
     {
         GameEventManager.Instance.OnPlayerDied -= ShowGameOver;
         GameEventManager.Instance.OnSurvivalMilestone -= HandleMilestone;
-        GameEventManager.Instance.OnHelicopterTakeOff -= HandleHelicopter;
+        GameEventManager.Instance.OnHelicopterTakeOff -= HandleHelicopter;      
     }
 
 
@@ -40,12 +40,18 @@ public class GameUI : MonoBehaviour
             gameOverPanel.SetActive(true);
         if (effectPanel != null)
             effectPanel.SetActive(false);
-    }
+    }   
 
     public void OnRetryButton()
-    {        
+    {   
+        Invoke(nameof(LoadScene), 3f);
+        GameEventManager.Instance.TriggerRestartClicked();
+    }
+    private void LoadScene()
+    {
         SceneManager.LoadScene(0);
-    }   
+    }
+
     public void OnExitButton()
     {
         Application.Quit();
