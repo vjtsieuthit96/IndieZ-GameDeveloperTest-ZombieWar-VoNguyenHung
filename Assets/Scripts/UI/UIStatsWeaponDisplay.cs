@@ -96,11 +96,17 @@ public class UIStatsWeaponDisplay : MonoBehaviour
     }
     private IEnumerator BlinkFill()
     {
-        Color baseColor = hpFillImage.color;
+        Color baseColor = Color.red; 
+        float elapsed = 0f;
+
         while (true)
         {
-            float t = Mathf.PingPong(Time.time * blinkSpeed, 1f);
+            elapsed += Time.deltaTime * blinkSpeed;
+            
+            float t = (Mathf.Sin(elapsed) + 1f) * 0.5f;
+
             hpFillImage.color = Color.Lerp(baseColor, blinkColor, t);
+
             yield return null;
         }
     }

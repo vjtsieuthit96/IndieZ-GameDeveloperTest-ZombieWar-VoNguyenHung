@@ -5748,8 +5748,8 @@ MonoBehaviour:
   hpSlider: {fileID: 2004589057}
   armorSlider: {fileID: 1903807909}
   hpFillImage: {fileID: 1160439604}
-  blinkColor: {r: 1, g: 0, b: 0, a: 1}
-  blinkSpeed: 10
+  blinkColor: {r: 1, g: 1, b: 1, a: 1}
+  blinkSpeed: 30
   lowHpThreshold: 30
 --- !u!1 &450188522
 GameObject:
@@ -5763,6 +5763,7 @@ GameObject:
   - component: {fileID: 450188527}
   - component: {fileID: 450188526}
   - component: {fileID: 450188525}
+  - component: {fileID: 450188528}
   m_Layer: 5
   m_Name: '[Panel] Survival Time'
   m_TagString: Untagged
@@ -5855,6 +5856,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450188522}
   m_CullTransparentMesh: 1
+--- !u!114 &450188528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450188522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c61a1336131f914bb5b4094f383c554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 947565541}
+  leaderboardText: {fileID: 1467001032}
+  leadboardPanel: {fileID: 269177414}
 --- !u!1001 &453322400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9747,7 +9763,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1666296361}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SurvivalTimerUI, Assembly-CSharp
         m_MethodName: TogglePanel
         m_Mode: 1
@@ -18043,7 +18059,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 7fe0ff00640c8074ebb03050a6f3cc15, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 0127ad06c3a55e241a65193dd1f60c62, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1001 &1297114268
 PrefabInstance:
@@ -23451,8 +23467,6 @@ GameObject:
   - component: {fileID: 1666296356}
   - component: {fileID: 1666296355}
   - component: {fileID: 1666296359}
-  - component: {fileID: 1666296360}
-  - component: {fileID: 1666296361}
   m_Layer: 5
   m_Name: GameUI
   m_TagString: Untagged
@@ -23569,46 +23583,6 @@ MonoBehaviour:
   effectPanel: {fileID: 1687891953}
   popupPanel: {fileID: 1556794594}
   popupPrefab: {fileID: 8083237251931484214, guid: 1342b4ccb6e088c4ea1914ddd81a7be5, type: 3}
---- !u!114 &1666296360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1666296354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb733aeb0e345654e87dae1b830e89bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bloodImage: {fileID: 1748957594}
-  bloodSprites:
-  - {fileID: 21300000, guid: f88c8750ffd7ba44ca38f37755f5b3cb, type: 3}
-  - {fileID: 21300000, guid: 222311c6a6187c949a0b9689c4b9b1be, type: 3}
-  - {fileID: 21300000, guid: 788cb6aee7813c049abc9504f1ebc2b4, type: 3}
-  fadeDuration: 0.5
-  bloodCooldown: 3
-  audioSource: {fileID: 1086015350}
-  painSounds:
-  - {fileID: 8300000, guid: d8093fae32b404b4780c7a8cbb025f6f, type: 3}
-  - {fileID: 8300000, guid: a15bc560f50ffa74182bdaa7288a3b2b, type: 3}
-  - {fileID: 8300000, guid: acec94fe668c05e46bba4d50d5d55139, type: 3}
-  - {fileID: 8300000, guid: a49dae75a3d72cb40b86e1f198b46c2f, type: 3}
---- !u!114 &1666296361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1666296354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c61a1336131f914bb5b4094f383c554, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timerText: {fileID: 947565541}
-  leaderboardText: {fileID: 1467001032}
-  leadboardPanel: {fileID: 269177414}
 --- !u!1001 &1666515936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24062,6 +24036,7 @@ GameObject:
   - component: {fileID: 1687891954}
   - component: {fileID: 1687891957}
   - component: {fileID: 1687891956}
+  - component: {fileID: 1687891958}
   m_Layer: 5
   m_Name: '[Panel] EffectImage'
   m_TagString: Untagged
@@ -24127,6 +24102,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687891953}
   m_CullTransparentMesh: 1
+--- !u!114 &1687891958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687891953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb733aeb0e345654e87dae1b830e89bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodImage: {fileID: 1748957594}
+  bloodSprites:
+  - {fileID: 21300000, guid: f88c8750ffd7ba44ca38f37755f5b3cb, type: 3}
+  - {fileID: 21300000, guid: 222311c6a6187c949a0b9689c4b9b1be, type: 3}
+  - {fileID: 21300000, guid: 788cb6aee7813c049abc9504f1ebc2b4, type: 3}
+  fadeDuration: 0.5
+  bloodCooldown: 3
+  audioSource: {fileID: 1086015350}
+  painSounds:
+  - {fileID: 8300000, guid: d8093fae32b404b4780c7a8cbb025f6f, type: 3}
+  - {fileID: 8300000, guid: a15bc560f50ffa74182bdaa7288a3b2b, type: 3}
+  - {fileID: 8300000, guid: acec94fe668c05e46bba4d50d5d55139, type: 3}
+  - {fileID: 8300000, guid: a49dae75a3d72cb40b86e1f198b46c2f, type: 3}
 --- !u!23 &1687935453 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2300000, guid: 8ad7a0e50c15ae3408d7f8790d6fb760, type: 3}
@@ -33172,6 +33172,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1565487029}
     m_Modifications:
+    - target: {fileID: 2176722369695214314, guid: 17e296277b8063845a2418c28a529ed5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768515506386774018, guid: 17e296277b8063845a2418c28a529ed5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.134
+      objectReference: {fileID: 0}
     - target: {fileID: 8020508677810310992, guid: 17e296277b8063845a2418c28a529ed5, type: 3}
       propertyPath: m_Name
       value: GrenadePicker
